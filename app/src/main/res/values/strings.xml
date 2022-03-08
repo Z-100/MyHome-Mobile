@@ -6,9 +6,14 @@
     <string name="fragment_login_label">Login Fragment</string>
     <string name="fragment_register_label">Register Fragment</string>
     <string name="fragment_members_label">Members Fragment</string>
+    <string name="fragment_house_label">House Fragment</string>
+    <string name="fragment_settings_label">Settings Fragment</string>
+    <string name="include_menu_buttons_label">Menu buttons</string>
 
     <!-- Font stuff -->
     <font name="navigation_button_font">@font/julius_sans_one</font>
     <font name="settings_button_font">@font/julius_sans_one</font>
     <font name="navigation_button_text_size">@font/julius_sans_one</font>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

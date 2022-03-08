@@ -34,7 +34,42 @@
             android:label="@string/fragment_members_label"
             tools:layout="@layout/fragment_members">
 
-        <!-- Actions pointing towards other pages -->
+        <!-- On logout -->
+        <action android:id="@+id/action_members_to_login"
+                app:destination="@id/LoginFragment" />
+
+        <action android:id="@+id/action_members_to_house"
+                app:destination="@id/HouseFragment" />
+    </fragment>
+
+    <fragment android:id="@+id/HouseFragment"
+            android:name="com.myhome.fragment.HouseFragment"
+            android:label="@string/fragment_house_label"
+            tools:layout="@layout/fragment_house">
+
+        <!-- On change member -->
+        <action android:id="@+id/action_house_to_members"
+                app:destination="@id/MembersFragment" />
+
+    </fragment>
+
+    <fragment android:id="@+id/SettingsFragment"
+            android:name="com.myhome.fragment.SettingsFragment"
+            android:label="@string/fragment_settings_label"
+            tools:layout="@layout/fragment_settings">
+
+    </fragment>
+
+    <fragment android:id="@+id/IncludeMenuButton"
+            android:name="com.myhome.fragment.MenuButtonsFragment"
+            android:label="@string/include_menu_buttons_label"
+            tools:layout="@layout/include_menu_buttons">
+
+        <action android:id="@+id/action_menu_to_house"
+                app:destination="@id/HouseFragment" />
+
+        <action android:id="@+id/action_menu_to_settings"
+                app:destination="@id/SettingsFragment" />
     </fragment>
 
 </navigation>
