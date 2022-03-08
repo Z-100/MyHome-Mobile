@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/alef</item>
+        <item>@font/anonymous_pro</item>
+        <item>@font/arizonia</item>
+        <item>@font/assistant</item>
+        <item>@font/assistant_extralight</item>
+        <item>@font/clicker_script</item>
+        <item>@font/julius_sans_one</item>
+        <item>@font/text_me_one</item>
+    </array>
+</resources>

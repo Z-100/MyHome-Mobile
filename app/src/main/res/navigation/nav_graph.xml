@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/LoginFragment">
+
+    <fragment android:id="@+id/LoginFragment"
+            android:name="com.myhome.fragment.LoginFragment"
+            android:label="@string/fragment_login_label"
+            tools:layout="@layout/fragment_login">
+
+        <action android:id="@+id/action_login_to_register"
+                app:destination="@id/RegisterFragment" />
+
+        <action android:id="@+id/action_login_to_members"
+                app:destination="@id/MembersFragment" />
+    </fragment>
+
+    <fragment android:id="@+id/RegisterFragment"
+            android:name="com.myhome.fragment.RegisterFragment"
+            android:label="@string/fragment_register_label"
+            tools:layout="@layout/fragment_register">
+
+        <action android:id="@+id/action_register_to_login"
+                app:destination="@id/LoginFragment" />
+
+        <action android:id="@+id/action_register_to_members"
+                app:destination="@id/MembersFragment" />
+    </fragment>
+
+    <fragment android:id="@+id/MembersFragment"
+            android:name="com.myhome.fragment.MembersFragment"
+            android:label="@string/fragment_members_label"
+            tools:layout="@layout/fragment_members">
+
+        <!-- Actions pointing towards other pages -->
+    </fragment>
+
+</navigation>

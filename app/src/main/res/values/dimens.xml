@@ -1,0 +1,15 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--Settings Menu-->
+    <dimen name="navigation_button_height">50sp</dimen>
+    <dimen name="navigation_button_width">0sp</dimen>
+    <dimen name="navigation_button_weight_1">0.5</dimen>
+    <dimen name="navigation_button_weight_1_5">1.5</dimen>
+    <dimen name="navigation_button_weight_2">2</dimen>
+    <dimen name="navigation_button_margin_bottom">10dp</dimen>
+    <dimen name="navigation_button_margin_start">3dp</dimen>
+    <dimen name="navigation_button_margin_end">3dp</dimen>
+    <dimen name="navigation_button_margin_top">10dp</dimen>
+    <dimen name="navigation_button_text_size">20sp</dimen>
+</resources>
