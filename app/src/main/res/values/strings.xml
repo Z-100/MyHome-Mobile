@@ -2,13 +2,26 @@
     <!-- App name -->
     <string name="app_name">MyHome</string>
 
+
     <!-- Strings used for fragments for navigation -->
     <string name="fragment_login_label">Login Fragment</string>
     <string name="fragment_register_label">Register Fragment</string>
     <string name="fragment_members_label">Members Fragment</string>
 
+    <string name="fragment_dashboard_label">Dashboard Fragment</string>
+    <string name="fragment_room_view_label">Room View Fragment</string>
+    <string name="fragment_room_label">Room Fragment</string>
+    <string name="fragment_kitchen_label">Kitchen Fragment</string>
+    <string name="fragment_item_view_label">Item View Fragment</string>
+    <string name="fragment_item_label">Item Fragment</string>
+
+    <string name="fragment_settings_label">Settings Fragment</string>
+    <string name="include_menu_buttons_label">Menu buttons</string>
+
+
     <!-- Font stuff -->
     <font name="navigation_button_font">@font/julius_sans_one</font>
     <font name="settings_button_font">@font/julius_sans_one</font>
     <font name="navigation_button_text_size">@font/julius_sans_one</font>
+
 </resources>

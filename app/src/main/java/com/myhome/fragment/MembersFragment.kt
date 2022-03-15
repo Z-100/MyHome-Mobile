@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.myhome.databinding.FragmentMembersBinding
 
+/**
+ * @author z-100
+ */
 class MembersFragment : Fragment() {
 
     private var _binding: FragmentMembersBinding? = null

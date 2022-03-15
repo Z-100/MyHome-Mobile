@@ -5,6 +5,7 @@
         android:id="@+id/nav_graph"
         app:startDestination="@id/LoginFragment">
 
+    <!-- Starting Application-->
     <fragment android:id="@+id/LoginFragment"
             android:name="com.myhome.fragment.LoginFragment"
             android:label="@string/fragment_login_label"
@@ -34,7 +35,94 @@
             android:label="@string/fragment_members_label"
             tools:layout="@layout/fragment_members">
 
-        <!-- Actions pointing towards other pages -->
+        <!-- On logout -->
+        <action android:id="@+id/action_members_to_login"
+                app:destination="@id/LoginFragment" />
+
+        <action android:id="@+id/action_members_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+    </fragment>
+
+
+
+    <!-- Inside Application -->
+    <fragment android:id="@+id/DashboardFragment"
+            android:name="com.myhome.fragment.DashboardFragment"
+            android:label="@string/fragment_dashboard_label"
+            tools:layout="@layout/fragment_dashboard">
+
+        <!-- On change member -->
+        <action android:id="@+id/action_dashboard_to_members"
+                app:destination="@id/MembersFragment" />
+
+        <action android:id="@+id/action_dashboard_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/action_dashboard_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+    </fragment>
+
+    <fragment android:id="@+id/RoomViewFragment"
+            android:name="com.myhome.fragment.RoomViewFragment"
+            android:label="@string/fragment_room_view_label"
+            tools:layout="@layout/fragment_room_view">
+
+        <action android:id="@+id/action_rooms_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/action_rooms_to_room"
+                app:destination="@id/RoomFragment" />
+
+    </fragment>
+    <fragment android:id="@+id/RoomFragment"
+            android:name="com.myhome.fragment.RoomFragment"
+            android:label="@string/fragment_room_label"
+            tools:layout="@layout/fragment_room">
+
+        <action android:id="@+id/action_room_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+    </fragment>
+
+    <fragment android:id="@+id/KitchenFragment"
+            android:name="com.myhome.fragment.KitchenFragment"
+            android:label="@string/fragment_kitchen_label"
+            tools:layout="@layout/fragment_kitchen">
+
+        <action android:id="@+id/action_kitchen_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/action_kitchen_to_items"
+                app:destination="@id/ItemViewFragment" />
+
+    </fragment>
+
+    <fragment android:id="@+id/ItemViewFragment"
+            android:name="com.myhome.fragment.ItemViewFragment"
+            android:label="@string/fragment_item_view_label"
+            tools:layout="@layout/fragment_item_view">
+
+        <action android:id="@+id/action_items_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+    </fragment>
+
+
+
+    <!-- Misc Application -->
+    <fragment android:id="@+id/SettingsFragment"
+            android:name="com.myhome.fragment.SettingsFragment"
+            android:label="@string/fragment_settings_label"
+            tools:layout="@layout/fragment_settings">
+
+    </fragment>
+
+    <fragment android:id="@+id/IncludeMenuButton"
+            android:name="com.myhome.fragment.MenuButtonsFragment"
+            android:label="@string/include_menu_buttons_label"
+            tools:layout="@layout/include_menu_buttons">
+
     </fragment>
 
 </navigation>

@@ -5,6 +5,7 @@ import com.myhome.blueprint.Account
 import com.myhome.other.SharedPreferencesStrings
 
 /**
+ * @author z-100
  * Class used to save and retrieve data from SharedPreferences
  */
 class DataHandlingService {
