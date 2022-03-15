@@ -1,4 +1,4 @@
-package com.myhome.activity;
+package com.myhome;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
