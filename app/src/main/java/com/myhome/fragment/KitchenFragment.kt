@@ -5,21 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.myhome.databinding.FragmentLoginBinding
+import com.myhome.databinding.FragmentKitchenBinding
 
 /**
  * @author z-100
  */
-class LoginFragment : Fragment() {
+class KitchenFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentKitchenBinding? = null
 
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentKitchenBinding.inflate(inflater, container, false)
         return binding.root
     }
 

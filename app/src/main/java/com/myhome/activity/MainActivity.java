@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.myhome.databinding.ActivityMainBinding;
 
 /**
+ * @author z-100
  * This is the apps entry point
  */
 public class MainActivity extends AppCompatActivity {

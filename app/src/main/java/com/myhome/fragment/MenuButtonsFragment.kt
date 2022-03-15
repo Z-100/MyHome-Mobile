@@ -5,10 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.myhome.databinding.FragmentHouseBinding
-import com.myhome.databinding.FragmentLoginBinding
 import com.myhome.databinding.IncludeMenuButtonsBinding
 
+/**
+ * @author z-100
+ */
 class MenuButtonsFragment : Fragment() {
 
     private var _binding: IncludeMenuButtonsBinding? = null
