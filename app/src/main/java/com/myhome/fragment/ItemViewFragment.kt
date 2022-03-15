@@ -5,19 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.myhome.databinding.FragmentHouseBinding
-import com.myhome.databinding.FragmentLoginBinding
+import com.myhome.databinding.FragmentItemViewBinding
 
-class HouseFragment : Fragment() {
+/**
+ * @author z-100
+ */
+class ItemViewFragment : Fragment() {
 
-    private var _binding: FragmentHouseBinding? = null
+    private var _binding: FragmentItemViewBinding? = null
 
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        _binding = FragmentHouseBinding.inflate(inflater, container, false)
+        _binding = FragmentItemViewBinding.inflate(inflater, container, false)
         return binding.root
     }
 

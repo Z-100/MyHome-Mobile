@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.myhome.databinding.FragmentRegisterBinding
 
+/**
+ * @author z-100
+ */
 class RegisterFragment : Fragment() {
 
     private var _binding: FragmentRegisterBinding? = null
