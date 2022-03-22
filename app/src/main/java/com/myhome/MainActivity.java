@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         if (Session.Factory.get() == null)
             if (loadDataOnLogin())
                 //Redirect to members page

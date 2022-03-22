@@ -57,3 +57,17 @@ class SharedPreferencesStrings {
         const val TOKEN = "token"
     }
 }
+
+// Fragment Constants
+class Constants {
+    companion object Factory {
+
+    }
+}
+
+class SharedPreferencesStrings {
+    companion object Factory {
+        const val EMAIL = "email"
+        const val PASSWORD = "password"
+    }
+}
