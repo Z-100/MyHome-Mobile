@@ -50,6 +50,23 @@ class Constants {
 
 class SharedPreferencesStrings {
     companion object Factory {
+        const val SHARED_PREF_NAME = "user-preferences"
+
+        const val EMAIL = "e-mail"
+        const val PASSWORD = "password"
+        const val TOKEN = "token"
+    }
+}
+
+// Fragment Constants
+class Constants {
+    companion object Factory {
+
+    }
+}
+
+class SharedPreferencesStrings {
+    companion object Factory {
         const val EMAIL = "email"
         const val PASSWORD = "password"
     }
