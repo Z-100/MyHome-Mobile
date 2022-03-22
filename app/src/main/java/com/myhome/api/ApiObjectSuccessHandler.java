@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * handler for sucessful response of type object
+ * Object success handler
  */
 public interface ApiObjectSuccessHandler {
     void handle(JSONObject result) throws JSONException;

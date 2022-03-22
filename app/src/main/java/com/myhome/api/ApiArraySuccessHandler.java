@@ -4,7 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 /**
- * handler for sucessful response of type array
+ * Object success handler
  */
 public interface ApiArraySuccessHandler {
     void handle(JSONArray result) throws JSONException;

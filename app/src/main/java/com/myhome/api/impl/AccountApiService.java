@@ -43,6 +43,7 @@ public class AccountApiService {
                         e.printStackTrace();
                     }
                 }, error -> {
+            Log.d(ApiConstants.TAG, error.toString());
             Toast.makeText(context, ApiError.GENERAL_ERROR + error, Toast.LENGTH_LONG).show();
         }) {
 
@@ -75,8 +76,9 @@ public class AccountApiService {
                     }
                 },
                 error -> {
-                    Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
-                }) {
+            Log.d(ApiConstants.TAG, error.toString());
+            Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
+        }) {
 
             @Override
             public Map<String, String> getHeaders() {
@@ -107,6 +109,7 @@ public class AccountApiService {
                         e.printStackTrace();
                     }
                 }, error -> {
+            Log.d(ApiConstants.TAG, error.toString());
             Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
         }) {
 
