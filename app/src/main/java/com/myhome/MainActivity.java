@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.myhome.blueprint.Account;
 import com.myhome.databinding.ActivityMainBinding;
-import com.myhome.other.ApiConstants;
 import com.myhome.other.Session;
 import com.myhome.other.SharedPreferencesStrings;
 import com.myhome.service.data.DataHandlingService;
@@ -31,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
     }
 
+    /**
+     * Retrieve data from handler
+     * @return true if account has been found
+     */
     private boolean loadDataOnLogin() {
         final DataHandlingService dataHandler = new DataHandlingService();
 
