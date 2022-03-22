@@ -9,7 +9,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MyHome">
 
-        <activity android:name="com.myhome.activity.MainActivity"
+        <activity android:name="com.myhome.api.MainActivity"
                 android:exported="true"
                 android:label="@string/app_name"
                 android:screenOrientation="portrait"
