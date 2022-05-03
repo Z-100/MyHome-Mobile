@@ -13,4 +13,30 @@
                 android:textSize="50sp"
             android:text="sananas" />
 
+    <EditText android:id="@+id/inputEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:ems="10"
+            android:layout_weight="1" />
+
+    <EditText android:id="@+id/inputPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:ems="10"
+            android:layout_weight="1" />
+
+    <Button android:id="@+id/submitButton"
+            android:text="Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    <Button android:id="@+id/registerInsteadButton"
+            android:text="Register instead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
 </LinearLayout>

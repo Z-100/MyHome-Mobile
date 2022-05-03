@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".fragment.RegisterFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,4 +12,37 @@
             android:layout_height="match_parent"
             android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <EditText android:id="@+id/inputEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:ems="10"
+            android:layout_weight="1" />
+
+    <EditText android:id="@+id/inputPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:ems="10"
+            android:layout_weight="1" />
+
+    <EditText android:id="@+id/inputRepeatPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repeat Password"
+            android:ems="10"
+            android:layout_weight="1" />
+
+    <Button android:id="@+id/submitButton"
+            android:text="Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    <Button android:id="@+id/loginInsteadButton"
+            android:text="Login instead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+</LinearLayout>

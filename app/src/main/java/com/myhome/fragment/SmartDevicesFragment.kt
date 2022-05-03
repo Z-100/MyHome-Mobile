@@ -5,21 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.myhome.databinding.IncludeMenuButtonsBinding
+import com.myhome.databinding.FragmentRoomViewBinding
+import com.myhome.databinding.FragmentSmartDevicesBinding
 
 /**
  * @author z-100
  */
-class MenuButtonsFragment : Fragment() {
+class SmartDevicesFragment : Fragment() {
 
-    private var _binding: IncludeMenuButtonsBinding? = null
+    private var _binding: FragmentSmartDevicesBinding? = null
 
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        _binding = IncludeMenuButtonsBinding.inflate(inflater, container, false)
+        _binding = FragmentSmartDevicesBinding.inflate(inflater, container, false)
         return binding.root
     }
 

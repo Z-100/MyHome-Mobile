@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.SettingsFragment">
+        android:orientation="horizontal">
+
+    <Button android:id="@+id/homeButton"
+            android:text="Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -11,4 +16,15 @@
             android:layout_height="100dp"
             android:text="Menubuttons" />
 
-</FrameLayout>
+    <Button android:id="@+id/roomsButton"
+            android:text="Rooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    <Button android:id="@+id/kitchenButton"
+            android:text="Kitchen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+</LinearLayout>
