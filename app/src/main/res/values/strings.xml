@@ -6,6 +6,12 @@
     <string name="fragment_login_label">Login Fragment</string>
     <string name="fragment_register_label">Register Fragment</string>
     <string name="fragment_members_label">Members Fragment</string>
+    <string name="fragment_login_title">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="repeat_Password">Repeat Password</string>
+
+    <string name="register">Register</string>
 
     <!-- Main Fragments -->
     <string name="fragment_dashboard_label">Dashboard Fragment</string>
