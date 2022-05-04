@@ -10,7 +10,8 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="repeat_Password">Repeat Password</string>
-
+    <string name="fragment_members_title">Members</string>
+    <string name="fragment_members_newmember">New Member</string>
     <string name="register">Register</string>
 
     <!-- Main Fragments -->
