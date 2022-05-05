@@ -2,6 +2,8 @@ package com.myhome;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myhome.blueprint.Account;
@@ -24,11 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (Session.Factory.get() == null)
-            if (loadDataOnLogin())
-                //Redirect to members page
+            if (loadDataOnLogin()){}
 
+                //Redirect to members pag
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        View view = binding.getRoot();
+        setContentView(view);
+
+
+
     }
 
     /**

@@ -140,7 +140,7 @@
                 android:textColorLink="#FFFFFF" />
 
         <EditText
-                android:id="@+id/repeatedInputPassword"
+                android:id="@+id/inputRepeatPassword"
                 android:layout_width="218dp"
                 android:layout_height="36dp"
                 android:layout_alignParentEnd="true"

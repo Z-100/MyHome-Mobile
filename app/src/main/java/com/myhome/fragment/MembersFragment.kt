@@ -30,18 +30,18 @@ class MembersFragment : Fragment() {
     }
 
     private fun generateBindings() {
-        binding.navigationButtons.backButton.setOnClickListener {
-            Session.destroy()
-            findNavController().navigate(R.id.members_to_login)
-        }
-
-        binding.navigationButtons.profileButton.setOnClickListener {
-            findNavController().navigate(R.id.members_to_dashboard) // TODO Add profile thingy
-        }
-
-        binding.addMemberButton.setOnClickListener {
-            findNavController().navigate(R.id.members_to_dashboard) // TODO Add members thingy
-        }
+//        binding.navigationButtons.backButton.setOnClickListener {
+//            Session.destroy()
+//            findNavController().navigate(R.id.members_to_login)
+//        }
+//
+//        binding.navigationButtons.profileButton.setOnClickListener {
+//            findNavController().navigate(R.id.members_to_dashboard) // TODO Add profile thingy
+//        }
+//
+//        binding.addMemberButton.setOnClickListener {
+//            findNavController().navigate(R.id.members_to_dashboard) // TODO Add members thingy
+//        }
     }
 
     override fun onDestroyView() {

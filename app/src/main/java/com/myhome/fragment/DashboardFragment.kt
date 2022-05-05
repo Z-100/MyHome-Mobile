@@ -32,34 +32,34 @@ class DashboardFragment : Fragment() {
     }
 
     private fun generateBindings() {
-        binding.navbarButtons.backButton.setOnClickListener {
-            findNavController().navigate(R.id.dashboard_to_members) // TODO Implement thingy
-        }
-
-        binding.navbarButtons.profileButton.setOnClickListener {
-            findNavController().navigate(R.id.action_members_to_dashboard) // TODO Add profile thingy
-        }
-
-        binding.navigationButtons.homeButton.setOnClickListener {
-            // Empty as were already in "home"
-        }
-
-        binding.navigationButtons.roomsButton.setOnClickListener {
-            findNavController().navigate(R.id.dashboard_to_rooms)
-        }
-
-        binding.navigationButtons.kitchenButton.setOnClickListener {
-            findNavController().navigate(R.id.dashboard_to_kitchen)
-        }
-
-
-        binding.rateMeal.setOnClickListener {
-            findNavController().navigate(R.id.dashboard_to_kitchen) //TODO Implement with link to meal. Just scroll to position where meals are
-        }
-
-        binding.shoppinglistButton.setOnClickListener {
-            findNavController().navigate(R.id.dashboard_to_kitchen) //TODO Implement with link to shopping list. Just scroll to position where shopping list is
-        }
+//        binding.navbarButtons.backButton.setOnClickListener {
+//            findNavController().navigate(R.id.dashboard_to_members) // TODO Implement thingy
+//        }
+//
+//        binding.navbarButtons.profileButton.setOnClickListener {
+//            findNavController().navigate(R.id.action_members_to_dashboard) // TODO Add profile thingy
+//        }
+//
+//        binding.navigationButtons.homeButton.setOnClickListener {
+//            // Empty as were already in "home"
+//        }
+//
+//        binding.navigationButtons.roomsButton.setOnClickListener {
+//            findNavController().navigate(R.id.dashboard_to_rooms)
+//        }
+//
+//        binding.navigationButtons.kitchenButton.setOnClickListener {
+//            findNavController().navigate(R.id.dashboard_to_kitchen)
+//        }
+//
+//
+//        binding.rateMeal.setOnClickListener {
+//            findNavController().navigate(R.id.dashboard_to_kitchen) //TODO Implement with link to meal. Just scroll to position where meals are
+//        }
+//
+//        binding.shoppinglistButton.setOnClickListener {
+//            findNavController().navigate(R.id.dashboard_to_kitchen) //TODO Implement with link to shopping list. Just scroll to position where shopping list is
+//        }
     }
 
     override fun onDestroyView() {

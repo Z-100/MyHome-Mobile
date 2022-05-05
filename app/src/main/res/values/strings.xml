@@ -13,6 +13,12 @@
     <string name="fragment_members_title">Members</string>
     <string name="fragment_members_newmember">New Member</string>
     <string name="register">Register</string>
+    <string name="home">Home</string>
+    <string name="kitchen">Kitchen</string>
+
+
+    <string name="rooms">Rooms</string>
+
 
     <!-- Main Fragments -->
     <string name="fragment_dashboard_label">Dashboard Fragment</string>

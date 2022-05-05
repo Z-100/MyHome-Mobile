@@ -28,14 +28,14 @@ class KitchenFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        try {
-            kitchenService.getRecipe(
-                context, Session.get()!!.email, Session.get()!!.token) {
-                    result -> Log.d(ApiConstants.TAG, result.toString())
-            }
-        } catch (e: JSONException) {
-            e.printStackTrace()
-        }
+//        try {
+//            kitchenService.getRecipe(
+//                context, Session.get()!!.email, Session.get()!!.token) {
+//                    result -> Log.d(ApiConstants.TAG, result.toString())
+//            }
+//        } catch (e: JSONException) {
+//            e.printStackTrace()
+//        }
 
         _binding = FragmentKitchenBinding.inflate(inflater, container, false)
         return binding.root
