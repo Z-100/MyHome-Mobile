@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myhome.blueprint.Account;
-import com.myhome.databinding.ActivityMainBinding;
+import com.myhome.databinding.ActivityStartBinding;
 import com.myhome.other.Session;
 import com.myhome.other.SharedPreferencesStrings;
 import com.myhome.service.data.DataHandlingService;
@@ -16,25 +16,22 @@ import com.myhome.service.data.DataHandlingService;
  * @author z-100
  * This is the apps entry point
  */
-public class MainActivity extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
+    private ActivityStartBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
-        if (Session.Factory.get() == null)
+        if (Session.Factory.get() != null)
             if (loadDataOnLogin()){}
 
-                //Redirect to members pag
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+
+        binding = ActivityStartBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
-
-
     }
 
     /**
