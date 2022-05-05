@@ -51,7 +51,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.registerInsteadButton.setOnClickListener {
-            findNavController().navigate(R.id.login_to_register)
+            findNavController().navigate(R.id.login_to_dashboard)
         }
 
         binding.inputEmail.doOnTextChanged {

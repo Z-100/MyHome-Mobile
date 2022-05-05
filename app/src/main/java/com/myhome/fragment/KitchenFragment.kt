@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.myhome.api.impl.KitchenApiService
 import com.myhome.databinding.FragmentKitchenBinding
 import com.myhome.other.ApiConstants
@@ -44,6 +45,20 @@ class KitchenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        generateBindings()
+
+    }
+    private fun generateBindings() {
+
+
+        binding.navigationBar.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                com.myhome.R.id.footer_home_btn -> findNavController().navigate(com.myhome.R.id.kitchen_to_dashboard)
+                com.myhome.R.id.footer_kitchen_btn -> findNavController().navigate(com.myhome.R.id.kitchen_to_kitchen)
+                com.myhome.R.id.footer_rooms_btn -> findNavController().navigate(com.myhome.R.id.kitchen_to_rooms)
+            }
+            true
+        }
     }
 
     override fun onDestroyView() {

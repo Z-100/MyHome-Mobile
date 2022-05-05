@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.myhome.blueprint.Account;
 import com.myhome.databinding.ActivityStartBinding;

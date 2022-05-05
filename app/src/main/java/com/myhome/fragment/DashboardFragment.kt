@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
-import com.myhome.R
 import com.myhome.databinding.FragmentDashboardBinding
+
+
+
 
 /**
  * @author z-100
@@ -32,6 +35,21 @@ class DashboardFragment : Fragment() {
     }
 
     private fun generateBindings() {
+
+
+        binding.navigationBar.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                com.myhome.R.id.footer_home_btn -> findNavController().navigate(com.myhome.R.id.dashboard_to_dashboard)
+                com.myhome.R.id.footer_kitchen_btn -> findNavController().navigate(com.myhome.R.id.dashboard_to_kitchen)
+                com.myhome.R.id.footer_rooms_btn -> findNavController().navigate(com.myhome.R.id.dashboard_to_rooms)
+            }
+            true
+        }
+
+
+
+
+
 //        binding.navbarButtons.backButton.setOnClickListener {
 //            findNavController().navigate(R.id.dashboard_to_members) // TODO Implement thingy
 //        }

@@ -18,4 +18,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/menu"
+            android:background="@color/white"
+            app:itemIconTint="@color/main_writing_color"
+            app:itemTextColor="@color/black"
+            app:layout_constraintHorizontal_bias="0.0" />
+
+    <View
+            android:id="@+id/navbar_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintBottom_toTopOf="@id/navigation_bar"
+            android:background="@color/black"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

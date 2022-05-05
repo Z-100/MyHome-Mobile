@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/footer_home_btn"
         android:icon="@drawable/home_icon"
         android:title="@string/home"/>
 
     <item
-        android:id="@+id/ic_rooms"
+        android:id="@+id/footer_rooms_btn"
         android:icon="@drawable/room_icon"
         android:title="@string/rooms"/>
 
     <item
-        android:id="@+id/kitchen"
+        android:id="@+id/footer_kitchen_btn"
         android:icon="@drawable/restaurant_icon"
         android:title="@string/kitchen"/>
 

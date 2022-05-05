@@ -16,6 +16,10 @@
         <action android:id="@+id/login_to_register"
                 app:destination="@id/RegisterFragment" />
 
+<!--change this is only for dev purpose-->
+        <action android:id="@+id/login_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
         <action android:id="@+id/login_to_members"
                 app:destination="@id/MembersFragment" />
     </fragment>
@@ -57,6 +61,9 @@
             android:name="com.myhome.fragment.DashboardFragment"
             android:label="@string/fragment_dashboard_label"
             tools:layout="@layout/fragment_dashboard">
+
+        <action android:id="@+id/dashboard_to_dashboard"
+                app:destination="@id/DashboardFragment" />
 
         <action android:id="@+id/dashboard_to_members"
                 app:destination="@id/MembersFragment" />
@@ -124,6 +131,9 @@
         <action android:id="@+id/rooms_to_settings"
                 app:destination="@id/SettingsFragment" />
 
+        <action android:id="@+id/rooms_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
         <action android:id="@+id/rooms_to_kitchen"
                 app:destination="@id/KitchenFragment" />
 
@@ -141,6 +151,9 @@
             android:name="com.myhome.fragment.KitchenFragment"
             android:label="@string/fragment_kitchen_label"
             tools:layout="@layout/fragment_kitchen">
+
+        <action android:id="@+id/kitchen_to_kitchen"
+                app:destination="@id/KitchenFragment" />
 
         <action android:id="@+id/kitchen_to_dashboard"
                 app:destination="@id/DashboardFragment" />
