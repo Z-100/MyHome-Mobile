@@ -42,6 +42,10 @@ class LoginFragment : Fragment() {
         generateBindings()
     }
 
+
+
+
+
     private fun generateBindings() {
         binding.submitButton.isEnabled = false
         binding.submitButton.setOnClickListener {
