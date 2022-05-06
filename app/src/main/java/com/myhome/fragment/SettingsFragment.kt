@@ -36,9 +36,9 @@ class SettingsFragment : Fragment() {
 
         binding.navigationBar.setOnItemSelectedListener {
                 item -> when (item.itemId) {
-            R.id.footer_home_btn -> findNavController().navigate(R.id.dashboard_to_dashboard)
-            R.id.footer_kitchen_btn -> findNavController().navigate(R.id.dashboard_to_kitchen)
-            R.id.footer_rooms_btn -> findNavController().navigate(R.id.dashboard_to_rooms)
+            R.id.footer_home_btn -> findNavController().navigate(R.id.settings_to_dashboard)
+            R.id.footer_kitchen_btn -> findNavController().navigate(R.id.settings_to_kitchen)
+            R.id.footer_rooms_btn -> findNavController().navigate(R.id.settings_to_rooms)
         }
             true
         }
@@ -47,7 +47,7 @@ class SettingsFragment : Fragment() {
         }
 
         binding.topNavbar.accountSettingsButton.setOnClickListener{
-            findNavController().navigate(R.id.dashboard_to_settings)
+            findNavController().navigate(R.id.settings_to_settings)
         }
 
 

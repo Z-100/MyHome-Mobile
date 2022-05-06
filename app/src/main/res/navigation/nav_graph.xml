@@ -116,6 +116,9 @@
         <action android:id="@+id/settings_to_change_password"
                 app:destination="@id/ChangePasswordFragment" />
 
+        <action android:id="@+id/settings_to_settings"
+                app:destination="@id/SettingsFragment" />
+
         <action android:id="@+id/settings_to_help"
                 app:destination="@id/HelpFragment" />
 

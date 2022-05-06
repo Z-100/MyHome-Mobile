@@ -1,14 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         tools:context=".fragment.HelpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+    <include layout="@layout/top_toolbar"
+            android:id="@+id/top_navbar"/>
 
-</FrameLayout>
+
+    <TextView
+            android:id="@+id/dashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/main_writing_color"
+            android:fontFamily="@font/gadugib"
+            app:layout_constraintHorizontal_bias="0.103"
+            app:layout_constraintTop_toBottomOf="@+id/top_navbar"
+            android:layout_marginTop="4dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/menu"
+            android:background="@color/white"
+            app:itemIconTint="@color/main_writing_color"
+            app:itemTextColor="@color/black"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <View
+            android:id="@+id/navbar_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintBottom_toTopOf="@id/navigation_bar"
+            android:background="@color/black"/>
+
+
+    <LinearLayout
+            android:id="@+id/myRectangleView"
+            android:layout_width="360dp"
+            android:layout_height="450dp"
+            android:background="@drawable/box"
+            app:layout_constraintTop_toBottomOf="@+id/dashboard"
+            app:layout_constraintBottom_toTopOf="@+id/navbar_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintVertical_bias="0.102"
+            android:elevation="15dp"
+            android:padding="0dp"
+            android:orientation="vertical">
+
+        <TextView
+                android:layout_marginTop="20dp"
+                android:text="@string/help_company_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/paragraph_color"
+                android:fontFamily="@font/gadugib"
+                android:textSize="17sp" />
+
+
+        <TextView
+                android:text="@string/help_company_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/paragraph_color"
+                android:fontFamily="@font/gadugib"
+                android:textSize="17sp" />
+
+
+        <TextView
+                android:text="@string/help_company_phonenumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/paragraph_color"
+                android:fontFamily="@font/gadugib"
+                android:textSize="17sp" />
+
+
+        <TextView
+                android:text="@string/help_company_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/paragraph_color"
+                android:fontFamily="@font/gadugib"
+                android:textSize="17sp" />
+
+
+        <TextView
+                android:text="@string/help_company_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/paragraph_color"
+                android:fontFamily="@font/gadugib"
+                android:textSize="17sp" />
+
+        <TextView
+                android:text="@string/help_company_legal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/paragraph_color"
+                android:fontFamily="@font/gadugib"
+                android:textSize="17sp"
+                android:textAlignment="center"
+                android:layout_marginTop="25dp"/>
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

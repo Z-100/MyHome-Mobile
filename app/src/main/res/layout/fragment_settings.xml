@@ -7,7 +7,6 @@
         android:orientation="vertical"
         tools:context=".fragment.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <include layout="@layout/top_toolbar"
             android:id="@+id/top_navbar"/>
 
