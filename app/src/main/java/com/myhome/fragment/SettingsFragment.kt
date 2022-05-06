@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.myhome.R
 import com.myhome.databinding.FragmentSettingsBinding
 
@@ -15,11 +16,11 @@ import com.myhome.databinding.FragmentSettingsBinding
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
-
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    private val args: SettingsFragmentArgs by navArgs()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
@@ -29,8 +30,6 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         generateBindings()
     }
-
-
 
     private fun generateBindings() {
 
@@ -44,6 +43,8 @@ class SettingsFragment : Fragment() {
         }
 
         binding.topNavbar.backButton.setOnClickListener {
+            if (args.backButton != -1)
+                findNavController().navigate(args.backButton)
         }
 
         binding.topNavbar.accountSettingsButton.setOnClickListener{

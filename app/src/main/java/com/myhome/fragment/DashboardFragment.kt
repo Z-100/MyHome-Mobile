@@ -41,14 +41,13 @@ class DashboardFragment : Fragment() {
             true
         }
 
-
         binding.topNavbar.backButton.setOnClickListener {
             if (args.backButton != -1)
                 findNavController().navigate(args.backButton)
         }
 
-        binding.topNavbar.accountSettingsButton.setOnClickListener{
-            findNavController().navigate(R.id.dashboard_to_settings)
+        binding.topNavbar.accountSettingsButton.setOnClickListener {
+            findNavController().navigate(DashboardFragmentDirections.dashboardToSettings().setBackButton(R.id.settings_to_dashboard))
         }
 
 

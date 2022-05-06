@@ -18,7 +18,7 @@ class RoomViewFragment : Fragment() {
     private var _binding: FragmentRoomViewBinding? = null
     private val binding get() = _binding!!
 
-    private val args: DashboardFragmentArgs by navArgs()
+    private val args: RoomViewFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
@@ -45,6 +45,10 @@ class RoomViewFragment : Fragment() {
         binding.topNavbar.backButton.setOnClickListener {
             if (args.backButton != -1)
                 findNavController().navigate(args.backButton)
+        }
+
+        binding.topNavbar.accountSettingsButton.setOnClickListener {
+            findNavController().navigate(RoomViewFragmentDirections.roomsToSettings().setBackButton(R.id.settings_to_rooms))
         }
     }
 
