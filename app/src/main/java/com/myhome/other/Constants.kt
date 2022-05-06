@@ -3,7 +3,7 @@ package com.myhome.other
 class ApiConstants {
     companion object Factory {
         // ! Replace by server IP
-        const val BASE_URL = "http://10.62.110.24:8080"
+        const val BASE_URL = "http://192.168.8.92:8080/"
 
         // Actual constants
         const val REGISTRATION_TOKEN = "MAHANSH MUTEM blyat suk my dik"

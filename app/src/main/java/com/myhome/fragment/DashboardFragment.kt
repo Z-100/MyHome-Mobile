@@ -10,6 +10,8 @@ import com.myhome.R
 import com.myhome.databinding.FragmentDashboardBinding
 
 
+
+
 /**
  * @author z-100
  */
@@ -40,6 +42,18 @@ class DashboardFragment : Fragment() {
             }
             true
         }
+
+        binding.topNavbar.backButton.setOnClickListener {
+            // addnavigationtoprevpage
+//            findNavController().navigate(R.id.)
+        }
+
+        binding.topNavbar.accountSettingsButton.setOnClickListener{
+            findNavController().navigate(R.id.dashboard_to_settings)
+
+        }
+
+
 
 //        binding.navbarButtons.backButton.setOnClickListener {
 //            findNavController().navigate(R.id.dashboard_to_members) // TODO Implement thingy
