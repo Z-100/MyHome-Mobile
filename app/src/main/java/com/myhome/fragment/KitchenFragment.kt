@@ -1,9 +1,6 @@
 package com.myhome.fragment
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.myhome.R
-import com.myhome.api.impl.KitchenApiService
 import com.myhome.databinding.FragmentKitchenBinding
-import com.myhome.other.ApiConstants
-import com.myhome.other.Session
-import com.myhome.other.SharedPreferencesStrings
-import org.json.JSONException
 
 /**
  * @author z-100
