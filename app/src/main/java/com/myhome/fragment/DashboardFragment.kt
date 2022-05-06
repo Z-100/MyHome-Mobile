@@ -44,8 +44,6 @@ class DashboardFragment : Fragment() {
         }
 
         binding.topNavbar.backButton.setOnClickListener {
-            // addnavigationtoprevpage
-//            findNavController().navigate(R.id.)
         }
 
         binding.topNavbar.accountSettingsButton.setOnClickListener{

@@ -26,6 +26,7 @@
                 android:text="@string/rooms"
                 android:layout_toEndOf="@id/backButton"
                 android:layout_centerVertical="true"
+                android:fontFamily="@font/gadugib"
                 android:textColor="@color/main_writing_color"
                 android:textSize="20sp" />
 
