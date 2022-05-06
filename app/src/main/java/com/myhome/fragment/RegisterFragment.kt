@@ -34,8 +34,7 @@ class RegisterFragment : Fragment() {
     private fun generateBindings() {
         binding.submitButton.isEnabled = false
         binding.submitButton.setOnClickListener {
-            if (checkEmptyFields()) {
-                //TODO Register stuff
+            if (noFieldEmpty()) {
                 findNavController().navigate(R.id.register_to_members)
             } else
             //TODO Check if email taken
@@ -48,19 +47,19 @@ class RegisterFragment : Fragment() {
         }
 
         binding.inputEmail.doOnTextChanged {
-                _,_,_,_ -> binding.submitButton.isEnabled = checkEmptyFields()
+                _,_,_,_ -> binding.submitButton.isEnabled = noFieldEmpty()
         }
 
         binding.inputPassword.doOnTextChanged {
-                _,_,_,_ -> binding.submitButton.isEnabled = checkEmptyFields()
+                _,_,_,_ -> binding.submitButton.isEnabled = noFieldEmpty()
         }
 
         binding.inputRepeatPassword.doOnTextChanged {
-                _,_,_,_ -> binding.submitButton.isEnabled = checkEmptyFields()
+                _,_,_,_ -> binding.submitButton.isEnabled = noFieldEmpty()
         }
     }
 
-    private fun checkEmptyFields(): Boolean {
+    private fun noFieldEmpty(): Boolean {
         return binding.inputEmail.text.toString().trim().isNotEmpty()
                 && binding.inputPassword.text.toString().trim().isNotEmpty()
                 && binding.inputRepeatPassword.text.toString().trim().isNotEmpty()

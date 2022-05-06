@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.myhome.R
-import com.myhome.api.ApiObjectSuccessHandler
 import com.myhome.api.impl.AccountApiService
 import com.myhome.databinding.FragmentLoginBinding
 import com.myhome.other.Strings
@@ -51,7 +50,7 @@ class LoginFragment : Fragment() {
     private fun generateBindings() {
         binding.submitButton.isEnabled = false
         binding.submitButton.setOnClickListener {
-            if (checkEmptyFields())
+            if (noFieldEmpty())
                 validateLogin()
             else {
                 Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
@@ -64,11 +63,11 @@ class LoginFragment : Fragment() {
         }
 
         binding.inputEmail.doOnTextChanged {
-                _,_,_,_ -> binding.submitButton.isEnabled = checkEmptyFields()
+                _,_,_,_ -> binding.submitButton.isEnabled = noFieldEmpty()
         }
 
         binding.inputPassword.doOnTextChanged {
-                _,_,_,_ -> binding.submitButton.isEnabled = checkEmptyFields()
+                _,_,_,_ -> binding.submitButton.isEnabled = noFieldEmpty()
         }
     }
 
@@ -93,7 +92,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun checkEmptyFields(): Boolean {
+    private fun noFieldEmpty(): Boolean {
         return binding.inputEmail.text.toString().trim().isNotEmpty()
                 && binding.inputPassword.text.toString().trim().isNotEmpty()
     }
