@@ -87,6 +87,9 @@
         <action android:id="@+id/dashboard_to_kitchen"
                 app:destination="@id/KitchenFragment" />
 
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/SettingsFragment"
@@ -121,6 +124,10 @@
 
         <action android:id="@+id/settings_to_sign_off"
                 app:destination="@id/LoginFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/RoomViewFragment"
@@ -145,6 +152,10 @@
 
         <action android:id="@+id/rooms_to_add_room"
                 app:destination="@id/AddRoomFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/KitchenFragment"
@@ -169,6 +180,10 @@
 
         <action android:id="@+id/kitchen_to_shopping_list"
                 app:destination="@id/ShoppingListFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
 
@@ -192,6 +207,9 @@
         <action android:id="@+id/action_items_to_kitchen"
                 app:destination="@id/KitchenFragment" />
 
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/HelpFragment"
@@ -210,6 +228,10 @@
 
         <action android:id="@+id/help_to_settings"
                 app:destination="@id/HelpFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/EditMembers"
@@ -222,6 +244,10 @@
 
         <action android:id="@+id/edit_members_to_edit_specific_member"
                 app:destination="@id/EditSpecificMember" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/AddMemberFragment"
@@ -240,6 +266,10 @@
 
         <action android:id="@+id/edit_specific_member_to_edit_member"
                 app:destination="@id/EditMembers" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/DeleteSpecificMember"
@@ -252,6 +282,10 @@
 
         <action android:id="@+id/delete_specific_member_to_settings"
                 app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/DeleteAccountFragment"
@@ -264,6 +298,10 @@
 
         <action android:id="@+id/delete_acc_to_settings"
                 app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/ChangePasswordFragment"
@@ -276,6 +314,10 @@
 
         <action android:id="@+id/change_pw_to_settings"
                 app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/ShoppingListFragment"
@@ -294,6 +336,10 @@
 
         <action android:id="@+id/shopping_list_to_settings"
                 app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/SmartDevicesFragment"
@@ -312,6 +358,10 @@
 
         <action android:id="@+id/smart_devices_to_settings"
                 app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/AddRoomFragment"
@@ -321,6 +371,10 @@
 
         <action android:id="@+id/add_room_to_rooms"
                 app:destination="@id/RoomViewFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/IncludeMenuButton"
@@ -339,6 +393,10 @@
 
         <action android:id="@+id/settings_to_members"
                 app:destination="@id/MembersFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
 </navigation>

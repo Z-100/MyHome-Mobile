@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.myhome.R
 import com.myhome.api.impl.KitchenApiService
 import com.myhome.databinding.FragmentKitchenBinding
 import com.myhome.other.ApiConstants
@@ -24,19 +26,10 @@ class KitchenFragment : Fragment() {
     private var _binding: FragmentKitchenBinding? = null
     private val binding get() = _binding!!
 
-    private val kitchenService = KitchenApiService()
+    private val args: DashboardFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-//        try {
-//            kitchenService.getRecipe(
-//                context, Session.get()!!.email, Session.get()!!.token) {
-//                    result -> Log.d(ApiConstants.TAG, result.toString())
-//            }
-//        } catch (e: JSONException) {
-//            e.printStackTrace()
-//        }
 
         _binding = FragmentKitchenBinding.inflate(inflater, container, false)
         return binding.root
@@ -46,18 +39,20 @@ class KitchenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         generateBindings()
-
     }
     private fun generateBindings() {
-
-
         binding.navigationBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                com.myhome.R.id.footer_home_btn -> findNavController().navigate(com.myhome.R.id.kitchen_to_dashboard)
-                com.myhome.R.id.footer_kitchen_btn -> findNavController().navigate(com.myhome.R.id.kitchen_to_kitchen)
-                com.myhome.R.id.footer_rooms_btn -> findNavController().navigate(com.myhome.R.id.kitchen_to_rooms)
+                R.id.footer_home_btn -> findNavController().navigate(KitchenFragmentDirections.kitchenToDashboard().setBackButton(R.id.kitchen_to_dashboard))
+                R.id.footer_kitchen_btn -> findNavController().navigate(KitchenFragmentDirections.kitchenToKitchen().setBackButton(R.id.kitchen_to_kitchen))
+                R.id.footer_rooms_btn -> findNavController().navigate(KitchenFragmentDirections.kitchenToRooms().setBackButton(R.id.rooms_to_kitchen))
             }
             true
+        }
+
+        binding.topNavbar.backButton.setOnClickListener {
+            if (args.backButton != -1)
+                findNavController().navigate(args.backButton)
         }
     }
 

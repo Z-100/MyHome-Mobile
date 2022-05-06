@@ -20,4 +20,9 @@ public class StartActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
     }
+
+    @Override
+    public void onBackPressed() {
+        // Leave empty to disable back button
+    }
 }

@@ -22,6 +22,7 @@ import com.myhome.service.data.DataHandlingService
 import java.lang.Exception
 
 import android.widget.AdapterView.OnItemClickListener
+import androidx.navigation.Navigation
 import com.myhome.other.Session
 
 /**
@@ -37,8 +38,7 @@ class MembersFragment : Fragment() {
 
     private val members = ArrayList<Member>()
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentMembersBinding.inflate(inflater, container, false)
         return binding.root
@@ -68,7 +68,9 @@ class MembersFragment : Fragment() {
                 _, _, position, _ -> members
 
             Session.create(members[position])
-            findNavController().navigate(R.id.members_to_dashboard)
+
+            findNavController().navigate(MembersFragmentDirections
+                .membersToDashboard().setBackButton(R.id.dashboard_to_members))
         }
     }
 
