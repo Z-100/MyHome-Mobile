@@ -25,43 +25,58 @@ class SettingsFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        generateBindings()
+    }
+
+
+
     private fun generateBindings() {
-        binding.navbarButtons.backButton.setOnClickListener {
-            findNavController().navigate(R.id.dashboard_to_members) // TODO Implement thingy
+
+        binding.navigationBar.setOnItemSelectedListener {
+                item -> when (item.itemId) {
+            R.id.footer_home_btn -> findNavController().navigate(R.id.dashboard_to_dashboard)
+            R.id.footer_kitchen_btn -> findNavController().navigate(R.id.dashboard_to_kitchen)
+            R.id.footer_rooms_btn -> findNavController().navigate(R.id.dashboard_to_rooms)
+        }
+            true
         }
 
-        binding.navigationButtons.homeButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_home)
+        binding.topNavbar.backButton.setOnClickListener {
         }
 
-        binding.navigationButtons.roomsButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_rooms)
+        binding.topNavbar.accountSettingsButton.setOnClickListener{
+            findNavController().navigate(R.id.dashboard_to_settings)
         }
 
-        binding.navigationButtons.kitchenButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_kitchen)
+
+        binding.helpButton.setOnClickListener {
+            findNavController().navigate(R.id.settings_to_help)
+        }
+
+
+        binding.deleteAccountButton.setOnClickListener {
+            findNavController().navigate(R.id.settings_to_delete_account)
         }
 
 
         binding.manageMembersButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_members) //TODO Change or smth
+            findNavController().navigate(R.id.settings_to_members)
         }
 
         binding.manageSmartDevicesButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_members) //TODO SmartDevice thingy
+            findNavController().navigate(R.id.settings_to_smart_devices)
         }
 
         binding.changePasswordButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_members) //TODO Password change
+            findNavController().navigate(R.id.settings_to_change_password)
         }
 
-        binding.manageMembersButton.setOnClickListener {
-
+        binding.signoffButton.setOnClickListener {
+            findNavController().navigate(R.id.settings_to_sign_off)
         }
 
-        binding.manageMembersButton.setOnClickListener {
-
-        }
     }
 
     override fun onDestroyView() {
