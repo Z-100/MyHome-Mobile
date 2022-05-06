@@ -37,9 +37,9 @@ class ApiError {
     }
 }
 
-class SharedPreferencesStrings {
+class SpStrings {
     companion object Factory {
-        const val SHARED_PREF_NAME = "user-preferences"
+        const val SP_NAME_ACC = "user-preferences"
 
         const val EMAIL = "e-mail"
         const val PASSWORD = "password"

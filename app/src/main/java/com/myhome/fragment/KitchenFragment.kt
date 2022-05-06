@@ -21,7 +21,7 @@ class KitchenFragment : Fragment() {
     private val args: KitchenFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
+                              container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentKitchenBinding.inflate(inflater, container, false)
         return binding.root
@@ -33,8 +33,8 @@ class KitchenFragment : Fragment() {
         generateBindings()
     }
     private fun generateBindings() {
-        binding.navigationBar.setOnItemSelectedListener { item ->
-            when (item.itemId) {
+        binding.navigationBar.setOnItemSelectedListener {
+            item -> when (item.itemId) {
                 R.id.footer_home_btn -> findNavController().navigate(KitchenFragmentDirections.kitchenToDashboard().setBackButton(R.id.dashboard_to_kitchen))
                 R.id.footer_kitchen_btn -> findNavController().navigate(KitchenFragmentDirections.kitchenToKitchen().setBackButton(R.id.kitchen_to_kitchen))
                 R.id.footer_rooms_btn -> findNavController().navigate(KitchenFragmentDirections.kitchenToRooms().setBackButton(R.id.rooms_to_kitchen))

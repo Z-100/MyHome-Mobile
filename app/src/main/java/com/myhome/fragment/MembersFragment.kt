@@ -17,12 +17,11 @@ import org.json.JSONArray
 import com.myhome.api.impl.AccountApiService
 import com.myhome.blueprint.Member
 import com.myhome.other.GridAdapter
-import com.myhome.other.SharedPreferencesStrings
+import com.myhome.other.SpStrings
 import com.myhome.service.data.DataHandlingService
 import java.lang.Exception
 
 import android.widget.AdapterView.OnItemClickListener
-import androidx.navigation.Navigation
 import com.myhome.other.Session
 
 /**
@@ -61,13 +60,13 @@ class MembersFragment : Fragment() {
             findNavController().navigate(R.id.members_to_add_member)
         }
 
-        val gridAdapter = GridAdapter(context, members)
+        val gridAdapter = GridAdapter(context, members, R.layout.member_grid_item)
         binding.gridView.adapter = gridAdapter
 
         binding.gridView.onItemClickListener = OnItemClickListener {
-                _, _, position, _ -> members
+                _, _, position, _ ->
 
-            Session.create(members[position])
+            Session.create(members[position], members)
 
             findNavController().navigate(MembersFragmentDirections
                 .membersToDashboard().setBackButton(R.id.dashboard_to_members))
@@ -77,7 +76,7 @@ class MembersFragment : Fragment() {
     private fun getMembersFromApi() {
         members.clear()
 
-        val sp = context!!.getSharedPreferences(SharedPreferencesStrings.SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val sp = context!!.getSharedPreferences(SpStrings.SP_NAME_ACC, Context.MODE_PRIVATE)
         val account = dataService.loadData(sp)
 
         try {

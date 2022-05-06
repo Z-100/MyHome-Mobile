@@ -33,8 +33,8 @@ class RoomViewFragment : Fragment() {
 
     }
     private fun generateBindings() {
-        binding.navigationBar.setOnItemSelectedListener { item ->
-            when (item.itemId) {
+        binding.navigationBar.setOnItemSelectedListener {
+            item -> when (item.itemId) {
                 R.id.footer_home_btn -> findNavController().navigate(RoomViewFragmentDirections.roomsToDashboard().setBackButton(R.id.dashboard_to_rooms))
                 R.id.footer_kitchen_btn -> findNavController().navigate(RoomViewFragmentDirections.roomsToKitchen().setBackButton(R.id.kitchen_to_rooms))
                 R.id.footer_rooms_btn -> findNavController().navigate(RoomViewFragmentDirections.roomsToRooms().setBackButton(R.id.rooms_to_rooms))

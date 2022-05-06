@@ -14,7 +14,7 @@ import com.myhome.api.impl.AccountApiService
 import com.myhome.blueprint.Account
 import com.myhome.databinding.FragmentRegisterBinding
 import com.myhome.other.ApiConstants
-import com.myhome.other.SharedPreferencesStrings
+import com.myhome.other.SpStrings
 import com.myhome.other.Strings
 import com.myhome.service.data.DataHandlingService
 import java.lang.Exception
@@ -77,7 +77,7 @@ class RegisterFragment : Fragment() {
         try {
             accountService.registerNewAccount(context, email, password, Strings.DEFAULT_MEMBER_NAME) {
                     result ->
-                val sp = context!!.getSharedPreferences(SharedPreferencesStrings.SHARED_PREF_NAME, Context.MODE_PRIVATE)
+                val sp = context!!.getSharedPreferences(SpStrings.SP_NAME_ACC, Context.MODE_PRIVATE)
                 val account = Account(email, password, result.getString(ApiConstants.TOKEN_FIELD))
 
                 dataService.saveData(sp, account)

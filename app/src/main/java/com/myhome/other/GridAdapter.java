@@ -23,10 +23,12 @@ public class GridAdapter extends BaseAdapter {
 
     private final List<Member> members;
     private final int[] avatars;
+    private final int gridView;
 
-    public GridAdapter(Context context, List<Member> members) {
+    public GridAdapter(Context context, List<Member> members, int gridView) {
         this.context = context;
         this.members = members;
+        this.gridView = gridView;
 
         avatars = new int[] {
                 R.drawable.avatar_0, R.drawable.avatar_1, R.drawable.avatar_2,
@@ -44,12 +46,14 @@ public class GridAdapter extends BaseAdapter {
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.member_grid_item, null);
+            convertView = inflater.inflate(gridView, null);
+
+        if (gridView == R.layout.member_grid_item) {
+            TextView textView = convertView.findViewById(R.id.item_name);
+            textView.setText(members.get(position).getName());
+        }
 
         ImageView imageView = convertView.findViewById(R.id.grid_image);
-        TextView textView = convertView.findViewById(R.id.item_name);
-
-        textView.setText(members.get(position).getName());
         imageView.setImageResource(avatars[members.get(position).getIcon()]);
 
         return convertView;
