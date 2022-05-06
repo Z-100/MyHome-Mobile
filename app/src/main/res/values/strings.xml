@@ -16,10 +16,20 @@
     <string name="home">Home</string>
     <string name="kitchen">Kitchen</string>
     <string name="account">Account</string>
-
-
+    <string name="help">Help</string>
     <string name="rooms">Rooms</string>
 
+
+
+
+    <string name="help_company_name">MyHome</string>
+    <string name="help_company_address">Address: Zurich</string>
+    <string name="help_company_phonenumber">Phone Number: 023012312323</string>
+    <string name="help_company_contact">Contact: dooo</string>
+    <string name="help_company_email">E-Mail: lol@lol.lol</string>
+    <string name="help_company_location">Developed in a garage</string>
+    <string name="help_company_something">Something: Random</string>
+    <string name="help_company_legal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
 
     <!-- Main Fragments -->
     <string name="fragment_dashboard_label">Dashboard Fragment</string>
