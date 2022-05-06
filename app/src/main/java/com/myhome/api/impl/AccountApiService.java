@@ -14,6 +14,7 @@ import com.myhome.api.ApiArraySuccessHandler;
 import com.myhome.api.ApiObjectSuccessHandler;
 import com.myhome.other.ApiConstants;
 import com.myhome.other.ApiError;
+import com.myhome.other.Logger;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,15 +37,13 @@ public class AccountApiService {
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, ApiConstants.BASE_URL + "account/login", data,
                 response -> {
-                    Log.d(ApiConstants.TAG, response.toString());
                     try {
                         callback.handle(response);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.d(ApiConstants.TAG, error.toString());
-            Toast.makeText(context, ApiError.GENERAL_ERROR + error, Toast.LENGTH_LONG).show();
+            Logger.log("ERROR", this.getClass().getCanonicalName(), error.toString());
         }) {
 
             @Override

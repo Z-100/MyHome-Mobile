@@ -29,7 +29,7 @@ class DataHandlingService {
         val password = sharedPref.getString(SharedPreferencesStrings.PASSWORD, null)
         val token = sharedPref.getString(SharedPreferencesStrings.TOKEN, null)
 
-        return if (email != null && password != null)
+        return if (email != null && password != null && token != null)
             Account(email, password, token) else null
     }
 }

@@ -39,19 +39,24 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        generateBindings()
+        if (dataService.loadData(context!!.getSharedPreferences(
+                SharedPreferencesStrings.SHARED_PREF_NAME, Context.MODE_PRIVATE)) != null) {
+
+            findNavController().navigate(R.id.login_to_members) // Redirect if login exists
+        } else {
+            generateBindings()
+        }
     }
-
-
-
-
 
     private fun generateBindings() {
         binding.submitButton.isEnabled = false
         binding.submitButton.setOnClickListener {
-            if (checkEmptyFields()) validateLogin()
-             else Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
+            if (checkEmptyFields())
+                validateLogin()
+            else {
+                Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
+            }
         }
 
         binding.registerInsteadButton.setOnClickListener {
@@ -83,7 +88,8 @@ class LoginFragment : Fragment() {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-
+            Snackbar.make(view!!, Strings.INVALID_USERNAME_OR_PASSWORD, Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
         }
     }
 
