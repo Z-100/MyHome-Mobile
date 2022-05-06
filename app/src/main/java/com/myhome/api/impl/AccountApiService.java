@@ -94,9 +94,7 @@ public class AccountApiService {
         JSONArray data = new JSONArray();
 
         JsonArrayRequest request = new JsonArrayRequest(
-                Request.Method.GET,
-                ApiConstants.BASE_URL + "member/get-member",
-                data,
+                Request.Method.GET, ApiConstants.BASE_URL + "member/get-member", data,
                 response -> {
                     try {
                         callback.handle(response);
@@ -104,8 +102,7 @@ public class AccountApiService {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.d(ApiConstants.TAG, error.toString());
-            Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
+            Logger.log("ERROR", this.getClass().getCanonicalName(), error.toString());
         }) {
 
             @Override

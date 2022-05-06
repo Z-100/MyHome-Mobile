@@ -19,7 +19,9 @@ import com.myhome.other.SharedPreferencesStrings
 import com.myhome.service.data.DataHandlingService
 import java.lang.Exception
 
-
+/**
+ * @author Z-100
+ */
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
@@ -29,7 +31,7 @@ class LoginFragment : Fragment() {
     private var dataService = DataHandlingService()
 
     override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
+                              container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
@@ -38,10 +40,11 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (dataService.loadData(context!!.getSharedPreferences(
-                SharedPreferencesStrings.SHARED_PREF_NAME, Context.MODE_PRIVATE)) != null) {
+        val account = dataService.loadData(context!!
+            .getSharedPreferences(SharedPreferencesStrings.SHARED_PREF_NAME, Context.MODE_PRIVATE))
 
-            findNavController().navigate(R.id.login_to_members) // Redirect if login exists
+        if (account != null) { // Redirect if login exists
+            findNavController().navigate(R.id.login_to_members)
         } else {
             generateBindings()
         }
@@ -57,7 +60,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.registerInsteadButton.setOnClickListener {
-            findNavController().navigate(R.id.login_to_dashboard)
+            findNavController().navigate(R.id.login_to_members)
         }
 
         binding.inputEmail.doOnTextChanged {

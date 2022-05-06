@@ -1,25 +1,24 @@
 package com.myhome.other
 
-import com.myhome.blueprint.Account
+import com.myhome.blueprint.Member
 
 class Session {
     companion object Factory {
 
-        private var USER_SESSION: Account? = null
+        private var USER_SESSION: Member? = null
 
-        fun create(account: Account): Account? {
-            if (this.USER_SESSION != null)
-                this.USER_SESSION = account
+        fun create(member: Member) {
+            if (this.USER_SESSION == null)
+                this.USER_SESSION = member
+            else update(member)
+        }
 
+        fun get(): Member? {
             return this.USER_SESSION
         }
 
-        fun get(): Account? {
-            return this.USER_SESSION
-        }
-
-        fun update(account: Account) {
-            this.USER_SESSION = account
+        fun update(member: Member) {
+            this.USER_SESSION = member
         }
 
         fun destroy() {
