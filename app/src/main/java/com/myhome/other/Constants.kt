@@ -49,7 +49,11 @@ class SharedPreferencesStrings {
 
 class Strings {
     companion object Factory {
+        const val DEFAULT_MEMBER_NAME = "ma-ta"
+
+        // Error
         const val FILL_IN_ALL_FIELDS = "Please fill in all fields!"
         const val INVALID_USERNAME_OR_PASSWORD = "The entered username and/or password are wrong"
+        const val USERNAME_ALREADY_TAKEN = "The entered username already is taken"
     }
 }

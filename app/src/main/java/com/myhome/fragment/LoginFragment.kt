@@ -50,12 +50,10 @@ class LoginFragment : Fragment() {
     private fun generateBindings() {
         binding.submitButton.isEnabled = false
         binding.submitButton.setOnClickListener {
-            if (noFieldEmpty())
-                validateLogin()
-            else {
-                Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
+            if (noFieldEmpty()) validateLogin()
+            else Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-            }
+
         }
 
         binding.registerInsteadButton.setOnClickListener {

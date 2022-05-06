@@ -63,11 +63,8 @@ public class AccountApiService {
         JSONObject data = new JSONObject();
 
         JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.GET,
-                ApiConstants.BASE_URL + "account/register",
-                data,
+                Request.Method.GET, ApiConstants.BASE_URL + "account/register", data,
                 response -> {
-                    Log.d(ApiConstants.TAG, response.toString());
                     try {
                         callback.handle(response);
                     } catch (JSONException e) {
@@ -75,8 +72,7 @@ public class AccountApiService {
                     }
                 },
                 error -> {
-            Log.d(ApiConstants.TAG, error.toString());
-            Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
+            Logger.log("ERROR", this.getClass().getCanonicalName(), error.toString());
         }) {
 
             @Override
