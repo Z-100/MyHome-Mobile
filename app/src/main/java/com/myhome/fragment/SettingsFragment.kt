@@ -41,9 +41,14 @@ class SettingsFragment : Fragment() {
     private fun generateBindings() {
         binding.navigationBar.setOnItemSelectedListener {
             item -> when (item.itemId) {
-                R.id.footer_home_btn -> findNavController().navigate(R.id.settings_to_dashboard)
-                R.id.footer_kitchen_btn -> findNavController().navigate(R.id.settings_to_kitchen)
-                R.id.footer_rooms_btn -> findNavController().navigate(R.id.settings_to_rooms)
+                R.id.footer_home_btn ->  findNavController().navigate(SettingsFragmentDirections.settingsToDashboard().setBackButton(
+                    R.id.dashboard_to_settings))
+
+                R.id.footer_kitchen_btn -> findNavController().navigate(SettingsFragmentDirections.settingsToKitchen().setBackButton(
+                    R.id.kitchen_to_settings))
+
+                R.id.footer_rooms_btn -> findNavController().navigate(SettingsFragmentDirections.settingsToRooms().setBackButton(
+                    R.id.rooms_to_settings))
             }
             true
         }
@@ -54,7 +59,8 @@ class SettingsFragment : Fragment() {
         }
 
         binding.topNavbar.accountSettingsButton.setOnClickListener{
-            findNavController().navigate(R.id.settings_to_settings)
+            findNavController().navigate(SettingsFragmentDirections.settingsToSettings().setBackButton(
+                R.id.settings_to_settings))
         }
 
         val gridAdapter = GridAdapter(context, Session.getMembers(), R.layout.settings_grid_item)
@@ -64,25 +70,30 @@ class SettingsFragment : Fragment() {
                 _, _, position, _ -> Session.getMembers()
             }
         binding.helpButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_help)
+            findNavController().navigate(SettingsFragmentDirections.settingsToHelp().setBackButton(
+                R.id.help_to_settings))
         }
 
 
         binding.deleteAccountButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_delete_account)
+            findNavController().navigate(SettingsFragmentDirections.settingsToDeleteAccount().setBackButton(
+                R.id.delete_acc_to_settings))
         }
 
 
         binding.manageMembersButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_members)
+            findNavController().navigate(SettingsFragmentDirections.settingsToChangePassword().setBackButton(
+                R.id.change_pw_to_settings))
         }
 
         binding.manageSmartDevicesButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_smart_devices)
+            findNavController().navigate(SettingsFragmentDirections.settingsToEditMembers().setBackButton(
+                R.id.edit_members_to_settings))
         }
 
         binding.changePasswordButton.setOnClickListener {
-            findNavController().navigate(R.id.settings_to_change_password)
+            findNavController().navigate(SettingsFragmentDirections.settingsToChangePassword().setBackButton(
+                R.id.change_pw_to_settings))
         }
 
         binding.signoffButton.setOnClickListener {

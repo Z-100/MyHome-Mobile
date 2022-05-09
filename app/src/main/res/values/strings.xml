@@ -9,6 +9,10 @@
     <string name="fragment_login_title">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="repeat_new_password">Repeat New Password</string>
     <string name="repeat_Password">Repeat Password</string>
     <string name="fragment_members_title">Members</string>
     <string name="fragment_members_newmember">New Member</string>
@@ -19,6 +23,9 @@
     <string name="help">Help</string>
     <string name="rooms">Rooms</string>
     <string name="overview">Overview</string>
+    <string name="change_password">Change Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
 
 
 

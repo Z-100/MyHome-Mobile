@@ -56,7 +56,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintVertical_bias="0.102"
-            android:elevation="15dp"
+            android:elevation="5dp"
             android:padding="0dp"
             android:orientation="vertical">
 
