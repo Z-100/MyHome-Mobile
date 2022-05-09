@@ -48,7 +48,7 @@
     <LinearLayout
             android:id="@+id/myRectangleView"
             android:layout_width="360dp"
-            android:layout_height="450dp"
+            android:layout_height="560dp"
             android:background="@drawable/box"
             app:layout_constraintTop_toBottomOf="@+id/title"
             app:layout_constraintBottom_toTopOf="@+id/navbar_line"

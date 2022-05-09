@@ -24,6 +24,7 @@
     <string name="rooms">Rooms</string>
     <string name="overview">Overview</string>
     <string name="change_password">Change Password</string>
+    <string name="delete_account">Delete Account</string>
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
 
