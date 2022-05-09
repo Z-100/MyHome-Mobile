@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.myhome.R
 import com.myhome.api.impl.AccountApiService
@@ -29,6 +30,8 @@ class LoginFragment : Fragment() {
 
     private var accountService = AccountApiService()
     private var dataService = DataHandlingService()
+
+    private val args: SettingsFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View {
