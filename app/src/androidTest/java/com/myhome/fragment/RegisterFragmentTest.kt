@@ -14,10 +14,10 @@ import org.junit.runner.RunWith
 
 
 @RunWith(AndroidJUnit4ClassRunner::class)
-class LoginFragmentTest : TestCase() {
+class RegisterFragmentTest : TestCase() {
 
     @Test
-    fun test_loginFormAcceptCorrectData() {
+    fun test_registerFormAcceptCorrectData() {
 
         //Setup
         val email = "hans@peter.ch"
@@ -28,8 +28,11 @@ class LoginFragmentTest : TestCase() {
         onView(withId(R.id.inputEmail)).perform(typeText(email))
         onView(withId(R.id.inputEmail)).check(matches(isDisplayed()));
 
-        onView(withId(R.id.inputPassword)).perform(typeText(pw))
-        onView(withId(R.id.inputPassword)).check(matches(isDisplayed()));
+        onView(withId(R.id.inputNewPassword)).perform(typeText(pw))
+        onView(withId(R.id.inputNewPassword)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.inputNewRepeatedPassword)).perform(typeText(pw))
+        onView(withId(R.id.inputNewRepeatedPassword)).check(matches(isDisplayed()));
 
         onView(withId(R.id.submitButton)).check(matches(isDisplayed()));
         onView(withId(R.id.submitButton)).perform(click())
