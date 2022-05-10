@@ -20,6 +20,10 @@
         <action android:id="@+id/login_to_dashboard"
                 app:destination="@id/DashboardFragment" />
 
+        <action android:id="@+id/login_to_login"
+                app:destination="@id/LoginFragment" />
+
+
         <action android:id="@+id/login_to_members"
                 app:destination="@id/MembersFragment" />
     </fragment>
@@ -162,6 +166,9 @@
         <action android:id="@+id/rooms_to_change_password"
                 app:destination="@id/ChangePasswordFragment" />
 
+        <action android:id="@+id/rooms_to_delete_acc"
+                app:destination="@id/DeleteAccountFragment" />
+
         <argument android:name="backButton"
                 app:argType="integer"
                 android:defaultValue="-1" />
@@ -180,6 +187,9 @@
 
         <action android:id="@+id/kitchen_to_change_password"
                 app:destination="@id/ChangePasswordFragment" />
+
+        <action android:id="@+id/kitchen_to_delete_acc"
+                app:destination="@id/DeleteAccountFragment" />
 
         <action android:id="@+id/kitchen_to_rooms"
                 app:destination="@id/RoomViewFragment" />
@@ -307,9 +317,18 @@
 
         <action android:id="@+id/delete_acc_to_register"
                 app:destination="@id/RegisterFragment" />
+        <action android:id="@+id/delete_acc_to_home"
+                app:destination="@id/DashboardFragment" />
+        <action android:id="@+id/delete_acc_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+        <action android:id="@+id/delete_acc_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+        <action android:id="@+id/delete_acc_to_login"
+                app:destination="@id/LoginFragment" />
 
         <action android:id="@+id/delete_acc_to_settings"
                 app:destination="@id/SettingsFragment" />
+
 
         <argument android:name="backButton"
                 app:argType="integer"
@@ -403,6 +422,9 @@
 
         <action android:id="@+id/home_to_change_password"
                 app:destination="@id/ChangePasswordFragment" />
+
+        <action android:id="@+id/home_to_delete_acc"
+                app:destination="@id/DeleteAccountFragment" />
 
         <action android:id="@+id/settings_to_rooms"
                 app:destination="@id/RoomViewFragment" />
