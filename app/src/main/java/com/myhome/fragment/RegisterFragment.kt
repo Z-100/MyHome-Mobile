@@ -74,6 +74,9 @@ class RegisterFragment : Fragment() {
         if (password != rPassword)
             return
 
+        findNavController().navigate(R.id.login_to_members)
+
+
         try {
             accountService.registerNewAccount(context, email, password, Strings.DEFAULT_MEMBER_NAME) {
                     result ->

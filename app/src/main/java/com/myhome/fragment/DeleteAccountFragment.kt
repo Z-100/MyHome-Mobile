@@ -64,11 +64,11 @@ class DeleteAccountFragment : Fragment() {
                 R.id.settings_to_delete_account))
         }
 
-        binding.cancelButton.setOnClickListener() {
+        binding.cancelButton.setOnClickListener {
             findNavController().navigate(DeleteAccountFragmentDirections.deleteAccToSettings().setBackButton(
                 R.id.settings_to_delete_account))
         }
-        binding.confirmButton.setOnClickListener() {
+        binding.confirmButton.setOnClickListener {
             findNavController().navigate(DeleteAccountFragmentDirections.deleteAccToLogin())
 
             Snackbar.make(view!!, "Your account has been successfully deleted", Snackbar.LENGTH_LONG)

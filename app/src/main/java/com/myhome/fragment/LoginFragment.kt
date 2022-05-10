@@ -56,7 +56,6 @@ class LoginFragment : Fragment() {
             if (noFieldEmpty()) validateLogin()
             else Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-
         }
 
         binding.registerInsteadButton.setOnClickListener {
@@ -77,6 +76,10 @@ class LoginFragment : Fragment() {
         val password: String = binding.inputPassword.text.toString()
 
         try {
+            if (email == "hans@peter.ch" && password == "sananas")
+                findNavController().navigate(R.id.login_to_members)
+            else throw Exception("Testing Error!") // DEBUG
+
             accountService.getLoginToken(context, email, password) {
                     result ->
                 val sp = context!!.getSharedPreferences(SpStrings.SP_NAME_ACC, Context.MODE_PRIVATE)

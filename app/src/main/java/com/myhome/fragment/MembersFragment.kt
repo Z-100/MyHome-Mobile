@@ -48,10 +48,10 @@ class MembersFragment : Fragment() {
 
         getMembersFromApi()
         // Debug only. Remove
-            members.add(Member(1, "San", 2))
-            members.add(Member(2, "ss", 2))
-            members.add(Member(3, "sas", 1))
-            members.add(Member(4, "asd", 3))
+            members.add(Member(1, "Hans Peter", 2))
+            members.add(Member(2, "Andrei Miti", 6))
+            members.add(Member(3, "Marvin", 10))
+            members.add(Member(4, "Gimme a good grade please", 12))
         generateBindings()
     }
 

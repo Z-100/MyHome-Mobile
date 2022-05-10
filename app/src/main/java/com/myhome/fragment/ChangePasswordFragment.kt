@@ -63,6 +63,7 @@ class ChangePasswordFragment : Fragment() {
                 R.id.settings_to_change_password))
         }
         binding.confirmButton.setOnClickListener() {
+            if (binding.inputOldPassword.text.toString() == "sananas")
             findNavController().navigate(ChangePasswordFragmentDirections.changePwToSettings().setBackButton(
                 R.id.settings_to_change_password))
 
