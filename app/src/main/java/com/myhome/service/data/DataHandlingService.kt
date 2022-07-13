@@ -1,34 +1,44 @@
 package com.myhome.service.data
 
 import android.content.SharedPreferences
+import com.myhome.Application
 import com.myhome.blueprint.Account
-import com.myhome.other.SharedPreferencesStrings
+import com.myhome.other.Session
+import com.myhome.other.SpStrings
+import java.lang.Appendable
 
-/**
- * @author z-100
- * Class used to save and retrieve data from SharedPreferences
- */
+//TODO Switch to session management
 class DataHandlingService {
 
-    fun saveData(sharedPref: SharedPreferences, account: Account): Boolean {
+    private val sharedPref: SharedPreferences = Application.sp;
+
+    //TODO Replace by session
+    //TODO Session should contain all information
+    fun saveData(): Boolean {
 
         val editor = sharedPref.edit()
 
+        if (Session == null) {
+            editor.clear()
+            return true
+        }
+
         editor.apply {
-              putString(SharedPreferencesStrings.EMAIL, account.email)
-              putString(SharedPreferencesStrings.PASSWORD, account.password)
-              putString(SharedPreferencesStrings.TOKEN, account.token)
+              putString(SpStrings.EMAIL, account.email)
+              putString(SpStrings.PASSWORD, account.password)
+              putString(SpStrings.TOKEN, account.token)
         }.apply()
 
-        return sharedPref.getString(SharedPreferencesStrings.EMAIL, null) != null
-                && sharedPref.getString(SharedPreferencesStrings.PASSWORD, null) != null
+        return sharedPref.getString(SpStrings.EMAIL, null) != null
+                && sharedPref.getString(SpStrings.PASSWORD, null) != null
     }
 
-    fun loadData(sharedPref: SharedPreferences): Account? {
+    fun loadData(): Session? {
 
-        val email = sharedPref.getString(SharedPreferencesStrings.EMAIL, null)
-        val password = sharedPref.getString(SharedPreferencesStrings.PASSWORD, null)
-        val token = sharedPref.getString(SharedPreferencesStrings.TOKEN, null)
+        val email = sharedPref.getString(SpStrings.EMAIL, null)
+        val password = sharedPref.getString(SpStrings.PASSWORD, null)
+        val token = sharedPref.getString(SpStrings.TOKEN, null)
+        val lastUsedMember = sharedPref.getString(SpStrings.LAST_MEMBER, null)
 
         return if (email != null && password != null && token != null)
             Account(email, password, token) else null

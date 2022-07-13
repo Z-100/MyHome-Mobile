@@ -1,4 +1,4 @@
-package com.myhome.api.impl;
+package com.myhome.service.api.components.impl;
 
 
 import android.content.Context;
@@ -10,8 +10,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.myhome.api.ApiArraySuccessHandler;
-import com.myhome.api.ApiObjectSuccessHandler;
+import com.myhome.service.api.callback.ApiArraySuccessHandler;
+import com.myhome.service.api.callback.ApiObjectSuccessHandler;
 import com.myhome.other.ApiConstants;
 import com.myhome.other.ApiError;
 
@@ -25,6 +25,7 @@ import java.util.Map;
 /**
  * @author Rad14nt
  */
+@Deprecated
 public class AccountApiService {
 
     private static final Map<String, String> header = new HashMap<>();

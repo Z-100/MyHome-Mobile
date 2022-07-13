@@ -1,13 +1,10 @@
 package com.myhome.other
 
-import android.view.View
-import com.google.android.material.snackbar.Snackbar
-
-// API Constants
+//TODO Rework structure
 class ApiConstants {
     companion object Factory {
         // ! Replace by server IP
-        const val BASE_URL = "http://10.62.110.24:8080"
+        const val BASE_URL = "http://192.168.8.92:8080/"
 
         // Actual constants
         const val REGISTRATION_TOKEN = "MAHANSH MUTEM blyat suk my dik"
@@ -41,33 +38,33 @@ class ApiError {
     }
 }
 
-// Fragment Constants
-class Constants {
+class SpStrings {
     companion object Factory {
-
-    }
-}
-
-class SharedPreferencesStrings {
-    companion object Factory {
-        const val SHARED_PREF_NAME = "user-preferences"
+        const val GENERAL = "user-preferences"
 
         const val EMAIL = "e-mail"
         const val PASSWORD = "password"
         const val TOKEN = "token"
+        const val LAST_MEMBER = "last-member"
     }
 }
 
-// Fragment Constants
-class Constants {
+class Strings {
     companion object Factory {
+        const val DEFAULT_MEMBER_NAME = "ma-ta"
 
+        // Error
+        const val CONFIRM_PASSWORD_CHANGE = "Password Changed Successfully"
+        const val FILL_IN_ALL_FIELDS = "Please fill in all fields!"
+        const val INVALID_USERNAME_OR_PASSWORD = "The entered username and/or password are wrong"
+        const val USERNAME_ALREADY_TAKEN = "The entered username already is taken"
     }
 }
 
-class SharedPreferencesStrings {
+class Headers {
     companion object Factory {
-        const val EMAIL = "email"
+        const val EMAIL = "e-mail"
         const val PASSWORD = "password"
+        const val TOKEN = "token"
     }
 }
