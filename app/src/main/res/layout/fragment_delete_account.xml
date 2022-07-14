@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.DeleteAccountFragment"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/top_toolbar"
+            android:id="@+id/top_navbar"/>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/menu"
+            android:background="@color/white"
+            app:itemIconTint="@color/main_writing_color"
+            app:itemTextColor="@color/black"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <View
+            android:id="@+id/navbar_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintBottom_toTopOf="@id/navigation_bar"
+            android:background="@color/black"/>
+
+
+    <LinearLayout
+            android:id="@+id/myRectangleView"
+            android:layout_width="390dp"
+            android:layout_height="330dp"
+            android:background="@drawable/box"
+            app:layout_constraintTop_toBottomOf="@+id/top_navbar"
+            app:layout_constraintBottom_toTopOf="@+id/navbar_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.424"
+            android:elevation="15dp"
+            android:padding="15dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete_account"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/main_writing_color"
+                android:fontFamily="@font/gadugib"
+                app:layout_constraintHorizontal_bias="0.103"
+                app:layout_constraintTop_toBottomOf="@+id/top_navbar"
+                android:layout_marginTop="4dp" />
+
+
+        <TextView
+        android:id="@+id/warning"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Are you sure you want to delete your account? This is permanent and cannot be undone!
+                                                   To confirm write Delete in the field."
+        android:textSize="12sp"
+                android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/paragraph_color"
+        android:fontFamily="@font/gadugib"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintTop_toBottomOf="@+id/top_navbar"
+        android:layout_marginTop="20dp"
+                />
+
+
+
+        <EditText
+                android:id="@+id/inputNewRepeatedPassword"
+                android:layout_width="340dp"
+                android:layout_height="45dp"
+                android:textSize="17sp"
+                android:background="@drawable/box"
+                android:fontFamily="@font/gadugib"
+                android:ems="10"
+                android:textAlignment="center"
+                android:hint="Delete"
+                android:inputType="textPassword"
+                android:textColor="@color/paragraph_color"
+                android:elevation="5dp"
+                android:layout_marginTop="10dp"
+                />
+
+
+        <LinearLayout
+                android:id="@+id/buttonPanel"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:elevation="5dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="65dp">
+
+            <TextView
+                    android:id="@+id/cancel_button"
+                    android:layout_width="160dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/box"
+                    android:textAlignment="center"
+                    android:text="@string/cancel"
+                    android:textColor="@color/green"
+                    android:textSize="17sp"
+                    android:fontFamily="@font/gadugib"
+                    android:gravity="center"
+                    android:elevation="5dp">
+
+            </TextView>
+
+            <TextView
+                    android:id="@+id/confirm_button"
+                    android:layout_width="160dp"
+                    android:layout_height="45dp"
+                    android:textSize="17sp"
+                    android:background="@drawable/box"
+                    android:textAlignment="center"
+                    android:text="@string/confirm"
+                    android:textColor="@color/red"
+                    android:fontFamily="@font/gadugib"
+                    android:gravity="center"
+                    android:elevation="5dp"
+                    android:layout_marginLeft="20dp">
+
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

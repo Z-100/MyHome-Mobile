@@ -3,6 +3,7 @@ package com.myhome.other
 import com.myhome.blueprint.Account
 import com.myhome.blueprint.SecurityHeaders
 import com.myhome.blueprint.Member
+import com.myhome.service.api.response.Members
 
 class Session {
     companion object Factory {
@@ -17,7 +18,7 @@ class Session {
         private var CURRENT_MEMBER: Member? = null
 
         // ? Get from members page
-        private var ALL_MEMBERS: List<Member> = ArrayList()
+        private var ALL_MEMBERS: Members? = null
 
         fun addAccount(account: Account) {
             this.USER_ACCOUNT
@@ -42,12 +43,20 @@ class Session {
             return this.AUTH!!
         }
 
-        fun addCurrentMember(member: Member) {
+        fun setCurrentMember(member: Member) {
             this.CURRENT_MEMBER = member
         }
 
         fun getCurrentMember(): Member? {
             return this.CURRENT_MEMBER
+        }
+
+        fun setAllMembers(members: List<Member>) {
+            this.ALL_MEMBERS = Members(members)
+        }
+
+        fun getAllMembers(): Members? {
+            return this.ALL_MEMBERS
         }
 
         fun exists(): Boolean {
@@ -58,7 +67,7 @@ class Session {
 
         fun destroy() {
             this.CURRENT_MEMBER = null
-            this.ALL_MEMBERS = emptyList()
+            this.ALL_MEMBERS = null
         }
     }
 }

@@ -1,10 +1,13 @@
 package com.myhome.other
 
 //TODO Rework structure
-class ApiConstants {
+class Api {
     companion object Factory {
         // ! Replace by server IP
         const val BASE_URL = "http://192.168.8.92:8080/"
+
+
+        const val MEMBERS = "members"
 
         // Actual constants
         const val REGISTRATION_TOKEN = "MAHANSH MUTEM blyat suk my dik"

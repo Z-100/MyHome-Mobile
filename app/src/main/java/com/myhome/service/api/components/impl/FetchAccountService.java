@@ -2,13 +2,12 @@ package com.myhome.service.api.components.impl;
 
 import com.myhome.Application;
 import com.myhome.blueprint.Account;
-import com.myhome.other.ApiConstants;
-import com.myhome.other.Logger;
+import com.myhome.other.Api;
 import com.myhome.other.Session;
 import com.myhome.service.api.callback.CallbackEntity;
 import com.myhome.service.api.components.GsonRequest;
 import com.myhome.service.api.components.IFetchAccountService;
-import com.myhome.service.api.constants.HttpStatus;
+import com.myhome.util.Logger;
 import com.myhome.util.ResponseEntity;
 
 import org.json.JSONException;
@@ -30,7 +29,7 @@ public class FetchAccountService implements IFetchAccountService {
                 urlLogin, JSONObject.class, headers,
                 response -> {
                     try {
-                        callback.handleResponse(response.getString(ApiConstants.TOKEN_FIELD));
+                        callback.handleResponse(response.getString(Api.TOKEN_FIELD));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

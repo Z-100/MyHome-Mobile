@@ -1,6 +1,5 @@
 package com.myhome.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,19 +9,13 @@ import androidx.navigation.fragment.findNavController
 import com.myhome.R
 import com.myhome.databinding.FragmentMembersBinding
 
-import org.json.JSONException
 
-import org.json.JSONArray
-
-import com.myhome.service.api.components.impl.AccountApiService
-import com.myhome.blueprint.Member
 import com.myhome.other.GridAdapter
-import com.myhome.other.SharedPref
-import com.myhome.service.data.DataHandlingService
 import java.lang.Exception
 
 import android.widget.AdapterView.OnItemClickListener
 import com.myhome.other.Session
+import com.myhome.service.api.components.impl.FetchMemberService
 
 /**
  * @author Z-100
@@ -32,27 +25,26 @@ class MembersFragment : Fragment() {
     private var _binding: FragmentMembersBinding? = null
     private val binding get() = _binding!!
 
-    private var accountService = AccountApiService()
-    private var dataService = DataHandlingService()
+    private var memberService = FetchMemberService()
 
-    private val members = ArrayList<Member>()
+    private var members = Session.getAllMembers()!!.members
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?, savedInstanceState: Bundle?): View {
+
+        getMembersFromApi()
+
+        // Redirect if credentials present
+        if (Session.getCurrentMember() != null)
+            findNavController().navigate(R.id.action_members_to_dashboard)
 
         _binding = FragmentMembersBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    //TODO If session has current member => Dashboard
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getMembersFromApi()
-        // Debug only. Remove
-            members.add(Member(1, "San", 2))
-            members.add(Member(2, "ss", 2))
-            members.add(Member(3, "sas", 1))
-            members.add(Member(4, "asd", 3))
         generateBindings()
     }
 
@@ -67,7 +59,7 @@ class MembersFragment : Fragment() {
         binding.gridView.onItemClickListener = OnItemClickListener {
                 _, _, position, _ ->
 
-            Session.create(members[position], members)
+            Session.setCurrentMember(members[position])
 
             findNavController().navigate(MembersFragmentDirections
                 .membersToDashboard().setBackButton(R.id.dashboard_to_members))
@@ -75,34 +67,12 @@ class MembersFragment : Fragment() {
     }
 
     private fun getMembersFromApi() {
-        members.clear()
-
-        val sp = context!!.getSharedPreferences(SharedPref.GENERAL, Context.MODE_PRIVATE)
-        val account = dataService.loadData(sp)
-
         try {
-            val email = account!!.email
-            val token = account.token
-
-            accountService.getAllMembers(context, email, token) { result ->
-                parseMembers(result)
+            memberService.fetchAllMembers {
+                    result -> Session.setAllMembers(result.members)
             }
         } catch (e: Exception) {
             e.printStackTrace()
-        }
-    }
-
-    //TODO Execute on page opened.
-    //TODO Add to session once page opened
-    @Throws(JSONException::class)
-    fun parseMembers(members: JSONArray) {
-        for (i in 0 until members.length()) {
-            val member = members.getJSONObject(i)
-            this.members.add(Member(
-                member.getLong("id"),
-                member.getString("name"),
-                member.getInt("icon")
-            ))
         }
     }
 

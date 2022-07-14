@@ -1,10 +1,10 @@
 package com.myhome.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -12,8 +12,7 @@ import com.myhome.R
 import com.myhome.service.api.components.impl.AccountApiService
 import com.myhome.blueprint.Account
 import com.myhome.databinding.FragmentRegisterBinding
-import com.myhome.other.ApiConstants
-import com.myhome.other.SharedPref
+import com.myhome.other.Api
 import com.myhome.other.Strings
 import com.myhome.service.data.DataHandlingService
 import java.lang.Exception
@@ -43,7 +42,7 @@ class RegisterFragment : Fragment() {
         binding.submitButton.isEnabled = false
         binding.submitButton.setOnClickListener {
             if (noFieldEmpty()) register()
-             else Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
+             else Snackbar.make(requireView(), Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
 
         }
@@ -75,17 +74,15 @@ class RegisterFragment : Fragment() {
 
         try {
             accountService.registerNewAccount(context, email, password, Strings.DEFAULT_MEMBER_NAME) {
-                    result ->
-                val sp = context!!.getSharedPreferences()
-                val account = Account(email, password, result.getString(ApiConstants.TOKEN_FIELD))
+                    result -> val account = Account(email, password, result.getString(Api.TOKEN_FIELD))
 
-                dataService.saveData(sp, account)
+                dataService.saveData()
 
                 findNavController().navigate(R.id.register_to_members)
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            Snackbar.make(view!!, Strings.USERNAME_ALREADY_TAKEN, Snackbar.LENGTH_LONG)
+            Snackbar.make(requireView(), Strings.USERNAME_ALREADY_TAKEN, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
     }

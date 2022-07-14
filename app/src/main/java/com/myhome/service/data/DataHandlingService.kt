@@ -10,7 +10,7 @@ import com.myhome.other.SharedPref
 
 class DataHandlingService {
 
-    private val sharedPref: SharedPreferences = Application.sp;
+    private val sharedPref: SharedPreferences = Application.sp
 
     fun saveData() {
         val editor = sharedPref.edit()
@@ -27,9 +27,9 @@ class DataHandlingService {
 
         if (currentMember != null)
             editor.apply {
-                putLong(SharedPref.MEMBER_ID, currentMember.id!!)
+                putLong(SharedPref.MEMBER_ID, currentMember.id)
                 putString(SharedPref.MEMBER_NAME, currentMember.name)
-                putInt(SharedPref.MEMBER_ICON, currentMember.icon!!)
+                putInt(SharedPref.MEMBER_ICON, currentMember.icon)
             }.apply()
     }
 
@@ -43,9 +43,10 @@ class DataHandlingService {
         val memberIcon = sharedPref.getInt(SharedPref.MEMBER_ICON, -1)
 
         Session.addAccount(Account(email, password, token))
-        Session.addCurrentMember(Member(memberId, memberName, memberIcon))
 
-        if (memberId != -1L && memberName != null && memberIcon != -1)
+        if (memberId != -1L && memberName != null && memberIcon != -1) {
             Session.addAuth(SecurityHeaders(email!!, password!!, token!!))
+            Session.setCurrentMember(Member(memberId, memberName, memberIcon))
+        }
     }
 }

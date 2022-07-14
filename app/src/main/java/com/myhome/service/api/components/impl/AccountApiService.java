@@ -12,7 +12,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.myhome.service.api.callback.ApiArraySuccessHandler;
 import com.myhome.service.api.callback.ApiObjectSuccessHandler;
-import com.myhome.other.ApiConstants;
+import com.myhome.other.Api;
 import com.myhome.other.ApiError;
 
 import org.json.JSONArray;
@@ -35,25 +35,25 @@ public class AccountApiService {
         JSONObject data = new JSONObject();
 
         JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.GET, ApiConstants.BASE_URL + "account/login", data,
+                Request.Method.GET, Api.BASE_URL + "account/login", data,
                 response -> {
-                    Log.d(ApiConstants.TAG, response.toString());
+                    Log.d(Api.TAG, response.toString());
                     try {
                         callback.handle(response);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.d(ApiConstants.TAG, error.toString());
+            Log.d(Api.TAG, error.toString());
             Toast.makeText(context, ApiError.GENERAL_ERROR + error, Toast.LENGTH_LONG).show();
         }) {
 
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
-                params.put(ApiConstants.EMAIL_FIELD, email);
-                params.put(ApiConstants.PASSWORD_FIELD, password);
-                params.put(ApiConstants.TOKEN_FIELD, ApiConstants.REGISTRATION_TOKEN);
+                params.put(Api.EMAIL_FIELD, email);
+                params.put(Api.PASSWORD_FIELD, password);
+                params.put(Api.TOKEN_FIELD, Api.REGISTRATION_TOKEN);
                 return params;
             }
         };
@@ -66,10 +66,10 @@ public class AccountApiService {
 
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET,
-                ApiConstants.BASE_URL + "account/register",
+                Api.BASE_URL + "account/register",
                 data,
                 response -> {
-                    Log.d(ApiConstants.TAG, response.toString());
+                    Log.d(Api.TAG, response.toString());
                     try {
                         callback.handle(response);
                     } catch (JSONException e) {
@@ -77,18 +77,18 @@ public class AccountApiService {
                     }
                 },
                 error -> {
-            Log.d(ApiConstants.TAG, error.toString());
+            Log.d(Api.TAG, error.toString());
             Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
         }) {
 
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
-                params.put(ApiConstants.EMAIL_FIELD, email);
-                params.put(ApiConstants.PASSWORD_FIELD, password);
-                params.put(ApiConstants.NEW_HOUSE_FIELD, ApiConstants.DEFAULT_HOME_NAME);
-                params.put(ApiConstants.DEFAULT_MEMBER_FIELD, defaultMemberName);
-                params.put(ApiConstants.TOKEN_FIELD, ApiConstants.LOGIN_TOKEN);
+                params.put(Api.EMAIL_FIELD, email);
+                params.put(Api.PASSWORD_FIELD, password);
+                params.put(Api.NEW_HOUSE_FIELD, Api.DEFAULT_HOME_NAME);
+                params.put(Api.DEFAULT_MEMBER_FIELD, defaultMemberName);
+                params.put(Api.TOKEN_FIELD, Api.LOGIN_TOKEN);
                 return params;
             }
         };
@@ -101,7 +101,7 @@ public class AccountApiService {
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
-                ApiConstants.BASE_URL + "member/get-member",
+                Api.BASE_URL + "member/get-member",
                 data,
                 response -> {
                     try {
@@ -110,15 +110,15 @@ public class AccountApiService {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.d(ApiConstants.TAG, error.toString());
+            Log.d(Api.TAG, error.toString());
             Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
         }) {
 
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
-                params.put(ApiConstants.EMAIL_FIELD, email);
-                params.put(ApiConstants.TOKEN_FIELD, token);
+                params.put(Api.EMAIL_FIELD, email);
+                params.put(Api.TOKEN_FIELD, token);
 
                 return params;
             }
@@ -131,7 +131,7 @@ public class AccountApiService {
         JSONObject data = new JSONObject();
 
         JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.GET, ApiConstants.BASE_URL + "member/delete-member", data,
+                Request.Method.GET, Api.BASE_URL + "member/delete-member", data,
                 response -> {
                     try {
                         callback.handle(response);
@@ -139,16 +139,16 @@ public class AccountApiService {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.d(ApiConstants.TAG, error.toString());
+            Log.d(Api.TAG, error.toString());
             Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
         }) {
 
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
-                params.put(ApiConstants.EMAIL_FIELD, email);
-                params.put(ApiConstants.TOKEN_FIELD, token);
-                params.put(ApiConstants.MEMBER_ID_FIELD, memberid);
+                params.put(Api.EMAIL_FIELD, email);
+                params.put(Api.TOKEN_FIELD, token);
+                params.put(Api.MEMBER_ID_FIELD, memberid);
 
                 return params;
             }
@@ -161,7 +161,7 @@ public class AccountApiService {
         JSONObject data = new JSONObject();
 
         JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.GET, ApiConstants.BASE_URL + "member/insert-member", data,
+                Request.Method.GET, Api.BASE_URL + "member/insert-member", data,
                 response -> {
                     try {
                         callback.handle(response);
@@ -169,17 +169,17 @@ public class AccountApiService {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.d(ApiConstants.TAG, error.toString());
+            Log.d(Api.TAG, error.toString());
             Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
         }) {
 
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
-                params.put(ApiConstants.EMAIL_FIELD, email);
-                params.put(ApiConstants.TOKEN_FIELD, token);
-                params.put(ApiConstants.ICON_FIELD, ApiConstants.DEFAULT_ICON);
-                params.put(ApiConstants.NAME_FIELD, name);
+                params.put(Api.EMAIL_FIELD, email);
+                params.put(Api.TOKEN_FIELD, token);
+                params.put(Api.ICON_FIELD, Api.DEFAULT_ICON);
+                params.put(Api.NAME_FIELD, name);
                 return params;
             }
         };
@@ -191,7 +191,7 @@ public class AccountApiService {
         JSONObject data = new JSONObject();
 
         JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.GET, ApiConstants.BASE_URL + "member/update-member", data,
+                Request.Method.GET, Api.BASE_URL + "member/update-member", data,
                 response -> {
                     try {
                         callback.handle(response);
@@ -199,18 +199,18 @@ public class AccountApiService {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.d(ApiConstants.TAG, error.toString());
+            Log.d(Api.TAG, error.toString());
             Toast.makeText(context, ApiError.GENERAL_ERROR, Toast.LENGTH_LONG).show();
         }) {
 
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
-                params.put(ApiConstants.EMAIL_FIELD, email);
-                params.put(ApiConstants.TOKEN_FIELD, token);
-                params.put(ApiConstants.MEMBER_ID_FIELD, member_id);
-                params.put(ApiConstants.REPLACEMENT_ICON_FIELD, replacement_icon);
-                params.put(ApiConstants.REPLACEMENT_NAME_FIELD, replacement_name);
+                params.put(Api.EMAIL_FIELD, email);
+                params.put(Api.TOKEN_FIELD, token);
+                params.put(Api.MEMBER_ID_FIELD, member_id);
+                params.put(Api.REPLACEMENT_ICON_FIELD, replacement_icon);
+                params.put(Api.REPLACEMENT_NAME_FIELD, replacement_name);
                 return params;
             }
         };

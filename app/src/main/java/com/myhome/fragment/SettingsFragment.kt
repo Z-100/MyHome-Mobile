@@ -1,6 +1,5 @@
 package com.myhome.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +10,9 @@ import androidx.navigation.fragment.navArgs
 import com.myhome.R
 import com.myhome.databinding.FragmentSettingsBinding
 import com.myhome.other.Session
-import com.myhome.other.SharedPref
 import com.myhome.service.data.DataHandlingService
 import android.widget.AdapterView.OnItemClickListener
+import com.myhome.blueprint.Member
 import com.myhome.other.GridAdapter
 
 /**
@@ -27,6 +26,8 @@ class SettingsFragment : Fragment() {
     private val args: SettingsFragmentArgs by navArgs()
     private val dataHandler = DataHandlingService()
 
+    private var members = Session.getAllMembers()!!.members
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
@@ -35,6 +36,7 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         generateBindings()
     }
 
@@ -63,11 +65,11 @@ class SettingsFragment : Fragment() {
                 R.id.settings_to_settings))
         }
 
-        val gridAdapter = GridAdapter(context, Session.getMembers(), R.layout.settings_grid_item)
+        val gridAdapter = GridAdapter(context, members, R.layout.settings_grid_item)
         binding.gridView.adapter = gridAdapter
 
         binding.gridView.onItemClickListener = OnItemClickListener {
-                _, _, position, _ -> Session.getMembers()
+                _, _, _, _ -> members
             }
         binding.helpButton.setOnClickListener {
             findNavController().navigate(SettingsFragmentDirections.settingsToHelp().setBackButton(
@@ -97,12 +99,7 @@ class SettingsFragment : Fragment() {
         }
 
         binding.signoffButton.setOnClickListener {
-            dataHandler.saveData(
-                context!!.getSharedPreferences(
-                    SharedPref.GENERAL,
-                    Context.MODE_PRIVATE
-                ), null
-            )
+            dataHandler.saveData()
             Session.destroy()
             findNavController().navigate(R.id.settings_to_sign_off)
         }

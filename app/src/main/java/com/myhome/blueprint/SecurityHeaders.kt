@@ -6,7 +6,7 @@ class SecurityHeaders(email: String, password: String, token: String) {
 
     constructor() : this("", "", "")
 
-    private val headers: HashMap<String, String> = HashMap();
+    private val headers = HashMap<String, String>()
 
     init {
         headers[Headers.EMAIL] = email
@@ -15,7 +15,7 @@ class SecurityHeaders(email: String, password: String, token: String) {
     }
 
     fun getHeaders(): HashMap<String, String> {
-        return headers;
+        return headers
     }
 
     fun addHeader(key: String, value: String) {
