@@ -2,11 +2,13 @@ package com.myhome.blueprint
 
 import com.myhome.other.Headers
 
-class SecurityHeaders {
+class SecurityHeaders(email: String, password: String, token: String) {
+
+    constructor() : this("", "", "")
 
     private val headers: HashMap<String, String> = HashMap();
 
-    fun setHeaders(email: String, password: String, token: String) {
+    init {
         headers[Headers.EMAIL] = email
         headers[Headers.PASSWORD] = password
         headers[Headers.TOKEN] = token
@@ -17,6 +19,10 @@ class SecurityHeaders {
     }
 
     fun addHeader(key: String, value: String) {
+        headers[key] = value
+    }
+
+    fun replaceHeader(key: String, value: String) {
         headers.replace(key, value)
     }
 }

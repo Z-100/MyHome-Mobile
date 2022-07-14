@@ -17,7 +17,7 @@ import org.json.JSONArray
 import com.myhome.service.api.components.impl.AccountApiService
 import com.myhome.blueprint.Member
 import com.myhome.other.GridAdapter
-import com.myhome.other.SpStrings
+import com.myhome.other.SharedPref
 import com.myhome.service.data.DataHandlingService
 import java.lang.Exception
 
@@ -43,6 +43,7 @@ class MembersFragment : Fragment() {
         return binding.root
     }
 
+    //TODO If session has current member => Dashboard
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -76,7 +77,7 @@ class MembersFragment : Fragment() {
     private fun getMembersFromApi() {
         members.clear()
 
-        val sp = context!!.getSharedPreferences(SpStrings.GENERAL, Context.MODE_PRIVATE)
+        val sp = context!!.getSharedPreferences(SharedPref.GENERAL, Context.MODE_PRIVATE)
         val account = dataService.loadData(sp)
 
         try {
@@ -91,6 +92,8 @@ class MembersFragment : Fragment() {
         }
     }
 
+    //TODO Execute on page opened.
+    //TODO Add to session once page opened
     @Throws(JSONException::class)
     fun parseMembers(members: JSONArray) {
         for (i in 0 until members.length()) {

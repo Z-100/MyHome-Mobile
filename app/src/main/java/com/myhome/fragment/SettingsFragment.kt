@@ -11,7 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.myhome.R
 import com.myhome.databinding.FragmentSettingsBinding
 import com.myhome.other.Session
-import com.myhome.other.SpStrings
+import com.myhome.other.SharedPref
 import com.myhome.service.data.DataHandlingService
 import android.widget.AdapterView.OnItemClickListener
 import com.myhome.other.GridAdapter
@@ -99,7 +99,7 @@ class SettingsFragment : Fragment() {
         binding.signoffButton.setOnClickListener {
             dataHandler.saveData(
                 context!!.getSharedPreferences(
-                    SpStrings.GENERAL,
+                    SharedPref.GENERAL,
                     Context.MODE_PRIVATE
                 ), null
             )
