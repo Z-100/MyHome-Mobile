@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.myhome.R
-import com.myhome.service.api.components.impl.AccountApiService
 import com.myhome.databinding.FragmentLoginBinding
 import com.myhome.other.*
 import com.myhome.service.api.components.impl.FetchAccountService
@@ -24,7 +23,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
-    private var accountService = AccountApiService()
+    private var accountService = FetchAccountService()
     private var dataService = DataHandlingService()
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -51,7 +50,7 @@ class LoginFragment : Fragment() {
         binding.submitButton.isEnabled = false
         binding.submitButton.setOnClickListener {
             if (noFieldEmpty()) validateLogin()
-            else Snackbar.make(view!!, Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
+            else Snackbar.make(requireView(), Strings.FILL_IN_ALL_FIELDS, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
 
         }
@@ -73,20 +72,12 @@ class LoginFragment : Fragment() {
         val email: String = binding.inputEmail.text.toString()
         val password: String = binding.inputPassword.text.toString()
 
-        try {
-            val fetchAccService = FetchAccountService()
-
-            fetchAccService.login {
-                result -> Session.replaceHeader(Headers.TOKEN, result)
-                dataService.saveData()
-            }
-
-            findNavController().navigate(R.id.login_to_members)
-        } catch (e: Exception) {
-            e.printStackTrace() //TODO Improve error handling
-            Snackbar.make(view!!, Strings.INVALID_USERNAME_OR_PASSWORD, Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        accountService.login(email, password) {
+            result -> Session.replaceHeader(Headers.TOKEN, result)
+            dataService.saveData()
         }
+
+        findNavController().navigate(R.id.login_to_members)
     }
 
     private fun noFieldEmpty(): Boolean {

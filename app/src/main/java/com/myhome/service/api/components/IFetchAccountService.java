@@ -8,13 +8,13 @@ import org.json.JSONObject;
 
 public interface IFetchAccountService {
 
-    void login(CallbackEntity<String> callback);
+    void login(String email, String password, CallbackEntity<String> callback);
 
-    ResponseEntity<String> register(Account account);
+    void register(String email, String password, CallbackEntity<String> callback);
 
-    ResponseEntity<Boolean> update(Account account);
+    void update(String email, String password, CallbackEntity<Boolean> callback);
 
-    ResponseEntity<Boolean> delete(Account account);
+    void delete(Long accountId, CallbackEntity<Boolean> callback);
 
-    ResponseEntity<Account> forgottenPW(Account account);
+    void forgottenPW(String email, CallbackEntity<Boolean> callback);
 }

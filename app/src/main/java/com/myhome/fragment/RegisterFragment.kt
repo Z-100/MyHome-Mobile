@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.myhome.R
-import com.myhome.service.api.components.impl.AccountApiService
-import com.myhome.blueprint.Account
 import com.myhome.databinding.FragmentRegisterBinding
-import com.myhome.other.Api
+import com.myhome.other.Headers
+import com.myhome.other.Session
 import com.myhome.other.Strings
+import com.myhome.service.api.components.impl.FetchAccountService
 import com.myhome.service.data.DataHandlingService
 import java.lang.Exception
 
@@ -22,7 +22,7 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
-    private var accountService = AccountApiService()
+    private var accountService = FetchAccountService()
     private var dataService = DataHandlingService()
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -72,19 +72,12 @@ class RegisterFragment : Fragment() {
         if (password != rPassword)
             return
 
-        try {
-            accountService.registerNewAccount(context, email, password, Strings.DEFAULT_MEMBER_NAME) {
-                    result -> val account = Account(email, password, result.getString(Api.TOKEN_FIELD))
-
-                dataService.saveData()
-
-                findNavController().navigate(R.id.register_to_members)
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Snackbar.make(requireView(), Strings.USERNAME_ALREADY_TAKEN, Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        accountService.register(email, password) {
+            result -> Session.replaceHeader(Headers.TOKEN, result)
+            dataService.saveData()
         }
+
+        findNavController().navigate(R.id.register_to_members)
     }
 
     private fun noFieldEmpty(): Boolean {

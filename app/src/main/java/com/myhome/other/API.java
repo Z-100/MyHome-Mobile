@@ -8,6 +8,7 @@ public enum API {
     URL_ACCOUNT("/account"),
     URL_LOGIN("/login"),
     URL_REGISTER("/register"),
+    URL_FORGOTTEN_PW("/forgotten"),
 
     URL_MEMBER("/member"),
     URL_DELETE_MEMBER(""),
@@ -16,7 +17,14 @@ public enum API {
     URL_FETCH_ALL("get-all"),
     URL_INSERT("/insert"),
     URL_DELETE("/delete"),
-    URL_UPDATE("/update");
+    URL_UPDATE("/update"),
+
+    FIELD_EMAIL("e-mail"),
+    FIELD_PASSWORD("password"),
+    FIELD_TOKEN("token"),
+    FIELD_NEW_EMAIL("new-email"),
+    FIELD_NEW_PASSWORD("new-password"),
+    FIELD_ACCOUNT_ID("account-id");
 
     private final String s;
 

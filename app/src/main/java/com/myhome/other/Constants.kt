@@ -22,6 +22,7 @@ class Api {
         const val PASSWORD_FIELD = "password"
         const val TOKEN_FIELD = "token"
         const val MEMBER_ID_FIELD = "member-id"
+        const val ACCOUNT_ID_FIELD = "account-id"
         const val ICON_FIELD = "icon"
         const val NAME_FIELD = "name"
         const val REPLACEMENT_ICON_FIELD = "replacement-icon"
