@@ -38,14 +38,17 @@ class ApiError {
     }
 }
 
-class SpStrings {
+class SharedPref {
     companion object Factory {
         const val GENERAL = "user-preferences"
 
         const val EMAIL = "e-mail"
         const val PASSWORD = "password"
         const val TOKEN = "token"
-        const val LAST_MEMBER = "last-member"
+
+        const val MEMBER_ID = "member-id"
+        const val MEMBER_NAME = "member-name"
+        const val MEMBER_ICON = "member-icon"
     }
 }
 

@@ -30,6 +30,13 @@ class LoginFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View {
 
+        dataService.loadData()
+
+        if (Session.exists()) {
+            // Redirect if credentials present
+            findNavController().navigate(R.id.action_login_to_members)
+        }
+
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -37,14 +44,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //TODO Change to session
-        val session = dataService.loadData()
-
-        if (session != null) { // Redirect if credentials present
-            findNavController().navigate(R.id.login_to_members)
-        } else {
-            generateBindings()
-        }
+        generateBindings()
     }
 
     private fun generateBindings() {
@@ -77,15 +77,13 @@ class LoginFragment : Fragment() {
             val fetchAccService = FetchAccountService()
 
             fetchAccService.login {
-                result -> Session.addAuth(Headers.TOKEN, result)
-                //TODO save data from session
-                //TODO Maybe combine the two
-                dataService.saveData(Session.getAccount())
+                result -> Session.replaceHeader(Headers.TOKEN, result)
+                dataService.saveData()
             }
 
             findNavController().navigate(R.id.login_to_members)
         } catch (e: Exception) {
-            e.printStackTrace()
+            e.printStackTrace() //TODO Improve error handling
             Snackbar.make(view!!, Strings.INVALID_USERNAME_OR_PASSWORD, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }

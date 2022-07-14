@@ -3,44 +3,49 @@ package com.myhome.service.data
 import android.content.SharedPreferences
 import com.myhome.Application
 import com.myhome.blueprint.Account
+import com.myhome.blueprint.Member
+import com.myhome.blueprint.SecurityHeaders
 import com.myhome.other.Session
-import com.myhome.other.SpStrings
-import java.lang.Appendable
+import com.myhome.other.SharedPref
 
-//TODO Switch to session management
 class DataHandlingService {
 
     private val sharedPref: SharedPreferences = Application.sp;
 
-    //TODO Replace by session
-    //TODO Session should contain all information
-    fun saveData(): Boolean {
-
+    fun saveData() {
         val editor = sharedPref.edit()
 
-        if (Session == null) {
-            editor.clear()
-            return true
-        }
+        val account = Session.getAccount()
+        val currentMember = Session.getCurrentMember()
 
-        editor.apply {
-              putString(SpStrings.EMAIL, account.email)
-              putString(SpStrings.PASSWORD, account.password)
-              putString(SpStrings.TOKEN, account.token)
-        }.apply()
+        if (account != null)
+            editor.apply {
+                  putString(SharedPref.EMAIL, account.email)
+                  putString(SharedPref.PASSWORD, account.password)
+                  putString(SharedPref.TOKEN, account.token)
+            }.apply()
 
-        return sharedPref.getString(SpStrings.EMAIL, null) != null
-                && sharedPref.getString(SpStrings.PASSWORD, null) != null
+        if (currentMember != null)
+            editor.apply {
+                putLong(SharedPref.MEMBER_ID, currentMember.id!!)
+                putString(SharedPref.MEMBER_NAME, currentMember.name)
+                putInt(SharedPref.MEMBER_ICON, currentMember.icon!!)
+            }.apply()
     }
 
-    fun loadData(): Session? {
+    fun loadData() {
+        val email = sharedPref.getString(SharedPref.EMAIL, null)
+        val password = sharedPref.getString(SharedPref.PASSWORD, null)
+        val token = sharedPref.getString(SharedPref.TOKEN, null)
 
-        val email = sharedPref.getString(SpStrings.EMAIL, null)
-        val password = sharedPref.getString(SpStrings.PASSWORD, null)
-        val token = sharedPref.getString(SpStrings.TOKEN, null)
-        val lastUsedMember = sharedPref.getString(SpStrings.LAST_MEMBER, null)
+        val memberId = sharedPref.getLong(SharedPref.MEMBER_ID, -1L)
+        val memberName = sharedPref.getString(SharedPref.MEMBER_NAME, null)
+        val memberIcon = sharedPref.getInt(SharedPref.MEMBER_ICON, -1)
 
-        return if (email != null && password != null && token != null)
-            Account(email, password, token) else null
+        Session.addAccount(Account(email, password, token))
+        Session.addCurrentMember(Member(memberId, memberName, memberIcon))
+
+        if (memberId != -1L && memberName != null && memberIcon != -1)
+            Session.addAuth(SecurityHeaders(email!!, password!!, token!!))
     }
 }
