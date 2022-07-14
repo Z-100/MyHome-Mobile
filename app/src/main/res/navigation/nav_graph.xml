@@ -5,16 +5,26 @@
         android:id="@+id/nav_graph"
         app:startDestination="@id/LoginFragment">
 
-    <!-- Starting Application-->
+
+
+    <!-- Starting Fragments -->
     <fragment android:id="@+id/LoginFragment"
             android:name="com.myhome.fragment.LoginFragment"
             android:label="@string/fragment_login_label"
             tools:layout="@layout/fragment_login">
 
-        <action android:id="@+id/action_login_to_register"
+        <action android:id="@+id/login_to_register"
                 app:destination="@id/RegisterFragment" />
 
-        <action android:id="@+id/action_login_to_members"
+<!--change this is only for dev purpose-->
+        <action android:id="@+id/login_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/login_to_login"
+                app:destination="@id/LoginFragment" />
+
+
+        <action android:id="@+id/login_to_members"
                 app:destination="@id/MembersFragment" />
     </fragment>
 
@@ -23,10 +33,10 @@
             android:label="@string/fragment_register_label"
             tools:layout="@layout/fragment_register">
 
-        <action android:id="@+id/action_register_to_login"
+        <action android:id="@+id/register_to_login"
                 app:destination="@id/LoginFragment" />
 
-        <action android:id="@+id/action_register_to_members"
+        <action android:id="@+id/register_to_members"
                 app:destination="@id/MembersFragment" />
     </fragment>
 
@@ -35,32 +45,99 @@
             android:label="@string/fragment_members_label"
             tools:layout="@layout/fragment_members">
 
-        <!-- On logout -->
-        <action android:id="@+id/action_members_to_login"
+        <action android:id="@+id/members_to_login"
                 app:destination="@id/LoginFragment" />
 
-        <action android:id="@+id/action_members_to_dashboard"
+        <action android:id="@+id/members_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <action android:id="@+id/members_to_dashboard"
                 app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/members_to_add_member"
+                app:destination="@id/AddMemberFragment" />
     </fragment>
 
 
 
-    <!-- Inside Application -->
+    <!-- Main Fragments -->
     <fragment android:id="@+id/DashboardFragment"
             android:name="com.myhome.fragment.DashboardFragment"
             android:label="@string/fragment_dashboard_label"
             tools:layout="@layout/fragment_dashboard">
 
-        <!-- On change member -->
-        <action android:id="@+id/action_dashboard_to_members"
+        <action android:id="@+id/dashboard_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/dashboard_to_members"
                 app:destination="@id/MembersFragment" />
 
-        <action android:id="@+id/action_dashboard_to_rooms"
-                app:destination="@id/RoomViewFragment" />
+        <action android:id="@+id/dashboard_to_settings"
+                app:destination="@id/SettingsFragment" />
 
-        <action android:id="@+id/action_dashboard_to_kitchen"
+        <!-- TODO: Add Scroll effect-->
+        <action android:id="@+id/dashboard_to_rate_meal"
                 app:destination="@id/KitchenFragment" />
 
+        <action android:id="@+id/dashboard_to_shopping_list"
+                app:destination="@id/ShoppingListFragment" />
+
+        <action android:id="@+id/dashboard_to_add_smart_device"
+                app:destination="@id/SmartDevicesFragment" />
+
+        <action android:id="@+id/dashboard_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/dashboard_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
+
+    <fragment android:id="@+id/SettingsFragment"
+            android:name="com.myhome.fragment.SettingsFragment"
+            android:label="@string/fragment_settings_label"
+            tools:layout="@layout/fragment_settings">
+
+        <action android:id="@+id/settings_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/settings_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/settings_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+        <!-- TODO: May needs changing -->
+        <action android:id="@+id/settings_to_members"
+                app:destination="@id/MembersFragment" />
+
+        <action android:id="@+id/settings_to_smart_devices"
+                app:destination="@id/SmartDevicesFragment" />
+
+        <action android:id="@+id/settings_to_change_password"
+                app:destination="@id/ChangePasswordFragment" />
+
+        <action android:id="@+id/settings_to_edit_members"
+                app:destination="@id/EditMembers" />
+
+        <action android:id="@+id/settings_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <action android:id="@+id/settings_to_help"
+                app:destination="@id/HelpFragment" />
+
+        <action android:id="@+id/settings_to_delete_account"
+                app:destination="@id/DeleteAccountFragment" />
+
+        <action android:id="@+id/settings_to_sign_off"
+                app:destination="@id/LoginFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/RoomViewFragment"
@@ -68,21 +145,33 @@
             android:label="@string/fragment_room_view_label"
             tools:layout="@layout/fragment_room_view">
 
-        <action android:id="@+id/action_rooms_to_dashboard"
+        <action android:id="@+id/rooms_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <action android:id="@+id/rooms_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/rooms_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+        <action android:id="@+id/rooms_to_dashboard"
                 app:destination="@id/DashboardFragment" />
 
         <action android:id="@+id/action_rooms_to_room"
                 app:destination="@id/RoomFragment" />
 
-    </fragment>
-    <fragment android:id="@+id/RoomFragment"
-            android:name="com.myhome.fragment.RoomFragment"
-            android:label="@string/fragment_room_label"
-            tools:layout="@layout/fragment_room">
+        <action android:id="@+id/rooms_to_add_room"
+                app:destination="@id/AddRoomFragment" />
 
-        <action android:id="@+id/action_room_to_rooms"
-                app:destination="@id/RoomViewFragment" />
+        <action android:id="@+id/rooms_to_change_password"
+                app:destination="@id/ChangePasswordFragment" />
 
+        <action android:id="@+id/rooms_to_delete_acc"
+                app:destination="@id/DeleteAccountFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/KitchenFragment"
@@ -90,11 +179,45 @@
             android:label="@string/fragment_kitchen_label"
             tools:layout="@layout/fragment_kitchen">
 
-        <action android:id="@+id/action_kitchen_to_dashboard"
+        <action android:id="@+id/kitchen_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+        <action android:id="@+id/kitchen_to_dashboard"
                 app:destination="@id/DashboardFragment" />
 
-        <action android:id="@+id/action_kitchen_to_items"
+        <action android:id="@+id/kitchen_to_change_password"
+                app:destination="@id/ChangePasswordFragment" />
+
+        <action android:id="@+id/kitchen_to_delete_acc"
+                app:destination="@id/DeleteAccountFragment" />
+
+        <action android:id="@+id/kitchen_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/kitchen_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <action android:id="@+id/kitchen_to_items"
                 app:destination="@id/ItemViewFragment" />
+
+        <action android:id="@+id/kitchen_to_shopping_list"
+                app:destination="@id/ShoppingListFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
+
+
+
+    <!-- Sub-Fragments -->
+    <fragment android:id="@+id/RoomFragment"
+            android:name="com.myhome.fragment.RoomFragment"
+            android:label="@string/fragment_room_label"
+            tools:layout="@layout/fragment_room">
+
+        <action android:id="@+id/action_room_to_rooms"
+                app:destination="@id/RoomViewFragment" />
 
     </fragment>
 
@@ -106,16 +229,187 @@
         <action android:id="@+id/action_items_to_kitchen"
                 app:destination="@id/KitchenFragment" />
 
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
+    <fragment android:id="@+id/HelpFragment"
+            android:name="com.myhome.fragment.HelpFragment"
+            android:label="@string/fragment_help_label"
+            tools:layout="@layout/fragment_help">
+
+        <action android:id="@+id/help_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/help_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/help_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+        <action android:id="@+id/help_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
+
+    <fragment android:id="@+id/EditMembers"
+            android:name="com.myhome.fragment.EditMembers"
+            android:label="@string/fragment_edit_members_label"
+            tools:layout="@layout/fragment_edit_members">
+
+        <action android:id="@+id/edit_members_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <action android:id="@+id/edit_members_to_edit_specific_member"
+                app:destination="@id/EditSpecificMember" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
+
+    <fragment android:id="@+id/AddMemberFragment"
+            android:name="com.myhome.fragment.AddMemberFragment"
+            android:label="@string/fragment_add_members_label"
+            tools:layout="@layout/fragment_add_member">
+
+        <action android:id="@+id/add_members_to_member"
+                app:destination="@id/MembersFragment" />
+    </fragment>
+
+    <fragment android:id="@+id/EditSpecificMember"
+            android:name="com.myhome.fragment.EditSpecificMemberFragment"
+            android:label="@string/fragment_edit_specific_member_label"
+            tools:layout="@layout/fragment_edit_specific_member">
+
+        <action android:id="@+id/edit_specific_member_to_edit_member"
+                app:destination="@id/EditMembers" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
+
+    <fragment android:id="@+id/DeleteSpecificMember"
+            android:name="com.myhome.fragment.DeleteSpecificMemberFragment"
+            android:label="@string/fragment_delete_specific_member_label"
+            tools:layout="@layout/fragment_delete_specific_member">
+
+        <action android:id="@+id/delete_specific_member_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/delete_specific_member_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
+
+    <fragment android:id="@+id/DeleteAccountFragment"
+            android:name="com.myhome.fragment.DeleteAccountFragment"
+            android:label="@string/fragment_delete_account_label"
+            tools:layout="@layout/fragment_delete_account">
+
+        <action android:id="@+id/delete_acc_to_register"
+                app:destination="@id/RegisterFragment" />
+        <action android:id="@+id/delete_acc_to_home"
+                app:destination="@id/DashboardFragment" />
+        <action android:id="@+id/delete_acc_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+        <action android:id="@+id/delete_acc_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+        <action android:id="@+id/delete_acc_to_login"
+                app:destination="@id/LoginFragment" />
+
+        <action android:id="@+id/delete_acc_to_settings"
+                app:destination="@id/SettingsFragment" />
 
 
-    <!-- Misc Application -->
-    <fragment android:id="@+id/SettingsFragment"
-            android:name="com.myhome.fragment.SettingsFragment"
-            android:label="@string/fragment_settings_label"
-            tools:layout="@layout/fragment_settings">
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
 
+    <fragment android:id="@+id/ChangePasswordFragment"
+            android:name="com.myhome.fragment.ChangePasswordFragment"
+            android:label="@string/fragment_change_password_label"
+            tools:layout="@layout/fragment_change_password">
+
+        <action android:id="@+id/change_pw_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+        <action android:id="@+id/change_pw_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+        <action android:id="@+id/change_pw_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/change_pw_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
+
+    <fragment android:id="@+id/ShoppingListFragment"
+            android:name="com.myhome.fragment.ShoppingListFragment"
+            android:label="@string/fragment_shopping_list_label"
+            tools:layout="@layout/fragment_shopping_list">
+
+        <action android:id="@+id/shopping_list_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/shopping_list_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+        <action android:id="@+id/shopping_list_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/shopping_list_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
+
+    <fragment android:id="@+id/SmartDevicesFragment"
+            android:name="com.myhome.fragment.SmartDevicesFragment"
+            android:label="@string/fragment_smart_devices_label"
+            tools:layout="@layout/fragment_smart_devices">
+
+        <action android:id="@+id/smart_devices_to_dashboard"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/smart_devices_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+        <action android:id="@+id/smart_devices_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/smart_devices_to_settings"
+                app:destination="@id/SettingsFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
+
+    <fragment android:id="@+id/AddRoomFragment"
+            android:name="com.myhome.fragment.AddRoomFragment"
+            android:label="@string/fragment_add_room_label"
+            tools:layout="@layout/fragment_add_room">
+
+        <action android:id="@+id/add_room_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/IncludeMenuButton"
@@ -123,6 +417,27 @@
             android:label="@string/include_menu_buttons_label"
             tools:layout="@layout/include_menu_buttons">
 
+        <action android:id="@+id/settings_to_home"
+                app:destination="@id/DashboardFragment" />
+
+        <action android:id="@+id/home_to_change_password"
+                app:destination="@id/ChangePasswordFragment" />
+
+        <action android:id="@+id/home_to_delete_acc"
+                app:destination="@id/DeleteAccountFragment" />
+
+        <action android:id="@+id/settings_to_rooms"
+                app:destination="@id/RoomViewFragment" />
+
+        <action android:id="@+id/settings_to_kitchen"
+                app:destination="@id/KitchenFragment" />
+
+        <action android:id="@+id/settings_to_members"
+                app:destination="@id/MembersFragment" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
 </navigation>

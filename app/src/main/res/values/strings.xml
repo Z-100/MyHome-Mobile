@@ -1,27 +1,72 @@
 <resources>
-    <!-- App name -->
     <string name="app_name">MyHome</string>
 
 
-    <!-- Strings used for fragments for navigation -->
+    <!-- Starting Fragments -->
     <string name="fragment_login_label">Login Fragment</string>
     <string name="fragment_register_label">Register Fragment</string>
     <string name="fragment_members_label">Members Fragment</string>
+    <string name="fragment_login_title">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="repeat_new_password">Repeat New Password</string>
+    <string name="repeat_Password">Repeat Password</string>
+    <string name="fragment_members_title">Members</string>
+    <string name="fragment_members_newmember">New Member</string>
+    <string name="register">Register</string>
+    <string name="home">Home</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="account">Account</string>
+    <string name="help">Help</string>
+    <string name="rooms">Rooms</string>
+    <string name="overview">Overview</string>
+    <string name="change_password">Change Password</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+
+
+
+    <string name="help_company_name">MyHome</string>
+    <string name="help_company_address">Address: Zurich</string>
+    <string name="help_company_phonenumber">Phone Number: 023012312323</string>
+    <string name="help_company_contact">Contact: dooo</string>
+    <string name="help_company_email">E-Mail: lol@lol.lol</string>
+    <string name="help_company_location">Developed in a garage</string>
+    <string name="help_company_something">Something: Random</string>
+    <string name="help_company_legal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
+
+    <!-- Main Fragments -->
     <string name="fragment_dashboard_label">Dashboard Fragment</string>
+    <string name="fragment_settings_label">Settings Fragment</string>
     <string name="fragment_room_view_label">Room View Fragment</string>
-    <string name="fragment_room_label">Room Fragment</string>
     <string name="fragment_kitchen_label">Kitchen Fragment</string>
+
+    <!-- Sub-Fragments -->
     <string name="fragment_item_view_label">Item View Fragment</string>
     <string name="fragment_item_label">Item Fragment</string>
-
-    <string name="fragment_settings_label">Settings Fragment</string>
+    <string name="fragment_room_label">Room Fragment</string>
     <string name="include_menu_buttons_label">Menu buttons</string>
+    <string name="fragment_help_label">Help Fragment</string>
+    <string name="fragment_delete_account_label">Delete Account Fragment</string>
+    <string name="fragment_change_password_label">Change Password Fragment</string>
+    <string name="fragment_delete_specific_member_label">Delete Specific Member Fragment</string>
+    <string name="fragment_edit_members_label">Edit Members Fragment</string>
+    <string name="fragment_edit_specific_member_label">Edit Specific Member Fragment</string>
+    <string name="fragment_shopping_list_label">Shopping List Fragment</string>
+    <string name="fragment_add_members_label">Add Member Fragment</string>
 
 
     <!-- Font stuff -->
     <font name="navigation_button_font">@font/julius_sans_one</font>
     <font name="settings_button_font">@font/julius_sans_one</font>
     <font name="navigation_button_text_size">@font/julius_sans_one</font>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_smart_devices_label">Smart Devices Fragment</string>
+    <string name="fragment_add_room_label">Add Room Fragment</string>
+    <string name="text_back_button">Back</string>
 </resources>
